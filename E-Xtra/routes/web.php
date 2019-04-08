@@ -14,14 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/absensi', 'AbsensiController@index');
-Route::get('/absensi/tambah','AbsensiController@create');
-Route::post('/absensi','AbsensiController@store');
-Route::get('/absensi/{id}/ubah','AbsensiController@edit');
-Route::patch('/absensi/{id}','AbsensiController@update');
-Route::delete('absensi/{id}','AbsensiController@destroy');
+Route::get('/absensi', 'AnggotaController@index');
+Route::get('/absensi/tambah','AnggotaController@create');
+Route::post('/absensi','AnggotaController@store');
+Route::get('/absensi/{id}/ubah','AnggotaController@edit');
+Route::patch('/absensi/{id}','AnggotaController@update');
+Route::delete('absensi/{id}','AnggotaController@destroy');
 
-Route::get('/absensi/mengabsen',);
+Route::get('/absensi/mengabsen','AbsensiController@index');
+Route::get('/absensi/mengabsen/mulai', 'AbsensiController@indexAbsen');
+Route::post('/absensi/mengabsen/', 'AbsensiController@storeAbsen');
 
 Auth::routes();
 

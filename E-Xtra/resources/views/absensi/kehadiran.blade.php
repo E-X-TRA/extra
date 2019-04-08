@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Absensi</title>
+	<title>Tabel Kehadiran</title>
 </head>
 <body>
-	@if(session('success'))
+@if(session('success'))
 	<div class="alert alert-success">
 		{{ session('success') }}
 	</div>
@@ -32,26 +32,15 @@
 	<tr>
 		<th>NIK</th>
 		<th>Nama</th>
-		<th>Kelas</th>
-		<th>Gender</th>
-		<th>Aksi</th>
+		<th>Tanggal</th>
+		<th>Kehadiran</th>
 	</tr>
-	@foreach ($anggota as $data)
+	@foreach ($kehadiran as $data)
 	<tr>
 		<td>{{ $data->nik }}</td>
 		<td>{{ $data->nama }}</td>
-		<td>{{ $data->kelas }}</td>
-		<td>{{ $data->jenis_kelamin }}</td>
-		<td class="px-0" align="center">
-				<a href="{{ url('/absensi/' . $data->id . '/ubah') }}" class="btn btn-primary">Edit</a>
-			</td>
-			<td class="px-0" align="center">
-				<form action="{{ url('/absensi/' . $data->id) }}" method="POST">
-					@method('DELETE')
-					@csrf
-					<button type="submit" class="btn btn-danger">Delete</button>
-				</form>
-			</td>
+		<td>{{ $data->kehadiran }}</td>
+		<td>{{ $data->tanggal }}</td>
 	</tr>
 	@endforeach
 </table>

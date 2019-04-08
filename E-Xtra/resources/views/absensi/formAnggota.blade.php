@@ -22,7 +22,7 @@
 @endif
 
 <h1>Form Anggota Ekskul</h1>
-	<form action="{{ url('absensi') }}" method="POST">
+	<form action="{{ url('absensi', @$anggota->id) }}" method="POST">
 	@csrf
 
 	@if(!empty($anggota))
