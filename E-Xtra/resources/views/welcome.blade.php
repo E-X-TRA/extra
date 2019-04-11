@@ -28,6 +28,7 @@
                     font-family: 'Timmana';
                     font-size: 175px;
                     margin-top: 1.1em;
+                    color: white
             }
         </style>
     </head>
