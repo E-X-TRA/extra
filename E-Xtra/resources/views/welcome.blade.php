@@ -23,13 +23,13 @@
                       background-position: center;
                       background-repeat: no-repeat;
                       background-size: 350px;
-                      background-color: #cdedf6
+                      background-color: #A1E2F4
             }
             .timmana {
                     font-family: 'Timmana';
                     font-size: 175px;
-                    margin-top: 1.1em;
-                    color: #cdedf6;
+                    margin-top: 100px;
+                    color: #A1E2F4;
             }
             .warna{
                 background-color: #006496;
@@ -43,17 +43,17 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col"></div>
-                <div class="col">
+                <div class="col-6">
                     <div class="text-center">
                         <h1 class="timmana">Extra</h1>
-                        <h3 class="text-capitalize" style="color: #cdedf6">dimana kami membuat semua hal lebih mudah</h3>
+                        <h4 class="text-capitalize" style="color: #cdedf6; margin-bottom: px;">dimana kami membuat semua hal lebih mudah</h4>
                     </div>
                 </div>
                 <div class="col"></div>
             </div>
         </div>
         <div class="container-fluid">
-            <div class="row">
+            <div class="row" style="margin-top: 100px">
                 <div class="col">
                     <div class="card">
                         <img class="card-img-top" src="holder.js/100x180/" alt="">
