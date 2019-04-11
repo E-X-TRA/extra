@@ -28,7 +28,7 @@ class AbsensiController extends Controller
 
 
     	unset($input['_token']);
-        for ($i=0; $i < sizeof($input); $i++) { 
+        for ($i=0; $i <= sizeof($input); $i++) { 
             $status = \DB::table('t_kehadiran')->insert([
             ['nik' => $nik[$i],'kehadiran' => $hadir[$i],'tanggal' => $tanggal[$i]]
         ]);
