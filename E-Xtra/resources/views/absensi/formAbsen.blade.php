@@ -27,10 +27,9 @@
 	 <form action="{{ url('absensi/mengabsen') }}" method="POST">
 	 	@csrf
 		<input type="text" name="tanggal" value="{{ $today->toDateString() }}"><br>
-
+		<input type="hidden" name="id_pertemuan" value="{{ $pertemuan }}">
 		@foreach ($absen as $data)
-		<input type="hidden" name="nik[{{ $data->id }}]" value="{{ $data->nik }}">
-		<input type="hidden" name="tanggal[{{ $data->id }}]" value="{{ $today->toDateString() }}">
+		<input type="hidden" name="id[{{ $data->id }}]" value="{{ $data->id }}">
 		{{ $data->nama }}
 		<input type="radio" name="kehadiran[{{ $data->id }}]" value="hadir">Hadir
 		<input type="radio" name="kehadiran[{{ $data->id }}]" value="tidak hadir">Tidak Hadir

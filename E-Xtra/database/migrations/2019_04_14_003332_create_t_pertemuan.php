@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTAnggota extends Migration
+class CreateTPertemuan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateTAnggota extends Migration
      */
     public function up()
     {
-        Schema::create('t_anggota', function (Blueprint $table) {
+        Schema::create('t_pertemuan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama',50);
-            $table->enum('jenis_kelamin',['L','P']);
-            $table->string('kelas',10);
+            $table->date('tanggal');
+            $table->string('kegiatan',45);
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateTAnggota extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_anggota');
+        Schema::dropIfExists('t_pertemuan');
     }
 }

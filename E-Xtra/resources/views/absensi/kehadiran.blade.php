@@ -3,6 +3,10 @@
 <head>
 	<title>Tabel Kehadiran</title>
 </head>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.0.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <body>
 @if(session('success'))
 	<div class="alert alert-success">
@@ -15,34 +19,35 @@
 		{{ session('error') }}
 	</div>
 	@endif
-<table>
-	
 	<?php
 	use Carbon\Carbon;
 
 	$today = Carbon::today();
 	 ?>
 	 Hari ini, {{ $today->toDateString() }}
-	<div>
-		<a href="{{ url('/absensi/mengabsen/mulai') }}">MULAI MENGABSEN</a>
-	</div>
 
-
-	<a href="{{ url('/absensi/tambah') }}" class="btn btn-primary mb-2">Tambah</a>
-	<tr>
-		<th>NIK</th>
-		<th>Nama</th>
-		<th>Tanggal</th>
-		<th>Kehadiran</th>
-	</tr>
-	@foreach ($kehadiran as $data)
-	<tr>
-		<td>{{ $data->nik }}</td>
-		<td>{{ $data->nama }}</td>
-		<td>{{ $data->kehadiran }}</td>
-		<td>{{ $data->tanggal }}</td>
-	</tr>
-	@endforeach
+<table id="tabelKehadiran">
+	<thead>
+		<tr>
+			<th>Nama</th>
+			<th>Kehadiran</th>
+			<th>Tanggal</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach ($kehadiran as $data)
+		<tr>
+			<td>{{ $data->nama }}</td>
+			<td>{{ $data->kehadiran }}</td>
+			<td>{{ $data->tanggal }}</td>
+		</tr>
+		@endforeach
+	</tbody>
 </table>
 </body>
+<script type="text/javascript">
+	$(document).ready( function () {
+    $('#tabelKehadiran').DataTable();
+});
+</script>
 </html>
