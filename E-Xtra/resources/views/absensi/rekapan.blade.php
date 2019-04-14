@@ -3,6 +3,7 @@
 <head>
 	<title></title>
 </head>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 <body>
 Disini tuh inginnya muncul data umum pertemuan kita
 <br>

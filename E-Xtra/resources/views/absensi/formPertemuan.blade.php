@@ -3,6 +3,7 @@
 <head>
 	<title>Buat Pertemuan</title>
 </head>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 <body>
 	<h1>Form Pertemuan</h1>
 	@php

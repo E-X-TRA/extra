@@ -3,6 +3,7 @@
 <head>
 	<title>Form Input Anggota</title>
 </head>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 <body>
 @if(session('error'))
 <div class="alert alert-error">

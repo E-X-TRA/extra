@@ -33,6 +33,8 @@ Route::get('/absensi/mengabsen/', 'AbsensiController@indexAbsen');
 Route::post('/absensi/mengabsen/', 'AbsensiController@storeAbsen');
 
 Route::get('/uangKas','KasController@index');
+Route::get('/uangKas/catat','KasController@create');
+Route::post('/uangKas','KasController@store');
 
 Auth::routes();
 

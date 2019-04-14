@@ -4,9 +4,6 @@
 	<title>Tabel Kehadiran</title>
 </head>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.0.min.js"></script>
-<script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <body>
 @if(session('success'))
 	<div class="alert alert-success">
@@ -45,9 +42,4 @@
 	</tbody>
 </table>
 </body>
-<script type="text/javascript">
-	$(document).ready( function () {
-    $('#tabelKehadiran').DataTable();
-});
-</script>
 </html>
