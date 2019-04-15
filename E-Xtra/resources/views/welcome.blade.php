@@ -74,34 +74,6 @@
     </head>
     <body>
         <div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>E-XTRA</h3>
-            </div>
-
-            <ul class="list-unstyled components">
-                <p>Welcome!</p>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Menu</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Beranda</a>
-                        </li>
-                        <li>
-                            <a href="#">Absensi</a>
-                        </li>
-                        <li>
-                            <a href="#">Uang Kas</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Tentang Kami</a>
-                </li>
-            </ul>
-        </nav>
-
         <!-- Page Content  -->
         <div id="content">
 
