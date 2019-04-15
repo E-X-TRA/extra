@@ -7,15 +7,22 @@
         <title>E-Xtra</title>
 
         <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Timmana" rel="stylesheet">
+
         <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Timmana" rel="stylesheet">
-        <style>
-
-        </style>
+<style>
+    .timmana {
+        font-family: 'Timmana';
+        font-size: 175px;
+        margin-top: 100px;
+        color: white;
+    }
+</style>
     </head>
     <body>
     <div class="parallax"></div>
@@ -72,7 +79,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <div class="card" style="width:300px">
+                        <div class="card" style="width:200px">
                             <img class="card-img-top" src="img/alvaro.jpg" alt="Card image" style="width:100%">
                             <div class="card-body">
                               <h3 class="card-title">Back-end</h3>
