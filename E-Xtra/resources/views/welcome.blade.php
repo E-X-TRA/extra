@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+        <link href="https://fonts.googleapis.com/css?family=Timmana" rel="stylesheet">
         <style>
             .container-gmb {
   position: relative;
@@ -196,7 +196,7 @@
                 font-size:15px;
             }
             a{
-                text-decoration:none; 
+                text-decoration:none;
                 color: #0062cc;
                 border-bottom:2px solid #0062cc;
             }
@@ -225,7 +225,7 @@
                 background-color: #009DDC;
                 border-radius: 5%;
             }
-            
+
         </style>
     </head>
     <body>
@@ -246,13 +246,13 @@
         </div>
      <div class="container-fluid">
         <div class="row" style="margin-top: 100px">
-                
+
             <div class="col">
                     <div class="container-gmb hover-blur">
                         <img class="image" src="img/check-square.png" alt="">
                         <div class="overlay">
                             <div class="text" style="left:10px;">Absensi</div>
-                        </div> 
+                        </div>
                     </div>
             </div>
 
@@ -261,17 +261,17 @@
                         <img class="image" src="img/note.png" alt="">
                         <div class="overlay">
                             <div class="text">Anggota</div>
-                        </div> 
+                        </div>
                     </div>
             </div>
             <div class="col">
                     <div class="container-gmb hover-blur">
                         <img class="image" src="img/bell.png" alt="">
                         <div class="overlay">
-                            <div class="text">About Us</div>
-                        </div> 
+                            <div class="text">Uang Kas</div>
+                        </div>
                     </div>
-            </div>            
+            </div>
         </div>
     </div>
 
