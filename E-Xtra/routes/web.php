@@ -14,16 +14,27 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/absensi', 'AnggotaController@index');
-Route::get('/absensi/tambah','AnggotaController@create');
-Route::post('/absensi','AnggotaController@store');
-Route::get('/absensi/{id}/ubah','AnggotaController@edit');
-Route::patch('/absensi/{id}','AnggotaController@update');
-Route::delete('absensi/{id}','AnggotaController@destroy');
 
-Route::get('/absensi/mengabsen','AbsensiController@index');
-Route::get('/absensi/mengabsen/mulai', 'AbsensiController@indexAbsen');
+Route::get('/absensi','AbsensiController@index');
+Route::get('/absensi/rekapan', 'PertemuanController@index');
+Route::get('/absensi/buatKumpul','PertemuanController@create');
+Route::post('/absensi','PertemuanController@store');
+
+
+Route::get('/absensi/anggota', 'AnggotaController@index');
+Route::get('/absensi/anggota/tambah','AnggotaController@create');
+Route::post('/absensi/anggota','AnggotaController@store');
+Route::get('/absensi/anggota/{id}/ubah','AnggotaController@edit');
+Route::patch('/absensi/anggota/{id}','AnggotaController@update');
+Route::delete('absensi/anggota/{id}','AnggotaController@destroy');
+
+Route::get('/absensi/rekapan/pertemuan/{id}','AbsensiController@indexRekapan');
+Route::get('/absensi/mengabsen/', 'AbsensiController@indexAbsen');
 Route::post('/absensi/mengabsen/', 'AbsensiController@storeAbsen');
+
+Route::get('/uangKas','KasController@index');
+Route::get('/uangKas/catat','KasController@create');
+Route::post('/uangKas','KasController@store');
 
 Auth::routes();
 

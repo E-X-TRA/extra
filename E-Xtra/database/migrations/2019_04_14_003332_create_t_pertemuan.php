@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTKehadiran extends Migration
+class CreateTPertemuan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateTKehadiran extends Migration
      */
     public function up()
     {
-        Schema::create('t_kehadiran', function (Blueprint $table) {
+        Schema::create('t_pertemuan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nis',11)->index();
-            $table->enum('kehadiran', ['hadir', 'tidak hadir']);
             $table->date('tanggal');
-            $table->string('keterangan',40);
+            $table->string('kegiatan',45);
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateTKehadiran extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_kehadiran');
+        Schema::dropIfExists('t_pertemuan');
     }
 }

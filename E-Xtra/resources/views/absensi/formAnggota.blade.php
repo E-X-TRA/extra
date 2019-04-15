@@ -3,6 +3,7 @@
 <head>
 	<title>Form Input Anggota</title>
 </head>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 <body>
 @if(session('error'))
 <div class="alert alert-error">
@@ -22,15 +23,13 @@
 @endif
 
 <h1>Form Anggota Ekskul</h1>
-	<form action="{{ url('absensi', @$anggota->id) }}" method="POST">
+	<form action="{{ url('absensi/anggota', @$anggota->id) }}" method="POST">
 	@csrf
 
 	@if(!empty($anggota))
 		@method('PATCH')
 	@endif
 
-	<label>NIK </label>
-	<input type="text" name="nik" value="{{ old('nik', @$anggota->nik) }}" />
 	<br><label>Nama Lengkap</label>
 	<input type="text" name="nama" value="{{ old('nama', @$anggota->nama) }}" />
 	<br>Jenis Kelamin:<br>

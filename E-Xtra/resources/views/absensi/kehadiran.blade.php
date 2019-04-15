@@ -3,6 +3,7 @@
 <head>
 	<title>Tabel Kehadiran</title>
 </head>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 <body>
 @if(session('success'))
 	<div class="alert alert-success">
@@ -15,34 +16,30 @@
 		{{ session('error') }}
 	</div>
 	@endif
-<table>
-	
 	<?php
 	use Carbon\Carbon;
 
 	$today = Carbon::today();
 	 ?>
 	 Hari ini, {{ $today->toDateString() }}
-	<div>
-		<a href="{{ url('/absensi/mengabsen/mulai') }}">MULAI MENGABSEN</a>
-	</div>
 
-
-	<a href="{{ url('/absensi/tambah') }}" class="btn btn-primary mb-2">Tambah</a>
-	<tr>
-		<th>NIK</th>
-		<th>Nama</th>
-		<th>Tanggal</th>
-		<th>Kehadiran</th>
-	</tr>
-	@foreach ($kehadiran as $data)
-	<tr>
-		<td>{{ $data->nik }}</td>
-		<td>{{ $data->nama }}</td>
-		<td>{{ $data->kehadiran }}</td>
-		<td>{{ $data->tanggal }}</td>
-	</tr>
-	@endforeach
+<table id="tabelKehadiran">
+	<thead>
+		<tr>
+			<th>Nama</th>
+			<th>Kehadiran</th>
+			<th>Tanggal</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach ($kehadiran as $data)
+		<tr>
+			<td>{{ $data->nama }}</td>
+			<td>{{ $data->kehadiran }}</td>
+			<td>{{ $data->tanggal }}</td>
+		</tr>
+		@endforeach
+	</tbody>
 </table>
 </body>
 </html>

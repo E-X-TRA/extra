@@ -10,8 +10,8 @@ class AnggotaController extends Controller
     	//untuk CRUD anggota
     public function index(){
     	$today = Carbon::today();
-    	$data['anggota'] = \DB::table('t_anggota')->get();
-    	return view('absensi.berandaAbsensi',$data);
+    	$data['anggota'] = \App\Anggota::get();
+    	return view('absensi.keanggotaan',$data);
     }
 
     public function create(){
@@ -20,7 +20,6 @@ class AnggotaController extends Controller
 
     public function store(Request $request){
     	$rule = [
-    		'nik' => 'required|numeric|unique:t_anggota,nik',
     		'nama' => 'required|string',
     		'kelas' => 'required|string',
     		'jenis_kelamin' => 'required|string|size:1',
@@ -28,24 +27,22 @@ class AnggotaController extends Controller
     	$this->validate($request,$rule);
 
     	$input = $request->all();
-    	unset($input['_token']);
-    	$status = \DB::table('t_anggota')->insert($input);
+    	$status = \App\Anggota::create($input);
 
     	if ($status) {
-    		return redirect('/absensi')->with('success','Data Berhasil Ditambahkan');
+    		return redirect('/absensi/anggota')->with('success','Data Berhasil Ditambahkan');
     	}else{
-    		return redirect('/absensi/ubah')->with('error','Data Gagal Ditambahkan');
+    		return redirect('/absensi/anggota/ubah')->with('error','Data Gagal Ditambahkan');
     	}
     }
 
     public function edit(Request $request, $id){
-    	$data['anggota'] = \DB::table('t_anggota')->find($id);
+    	$data['anggota'] = \App\Anggota::find($id);
     	return view('absensi.formAnggota',$data);
     }
     
     public function update(Request $request, $id){
     	$rule = [
-    		'nik' => 'required|numeric',
     		'nama' => 'required|string',
     		'kelas' => 'required|string',
     		'jenis_kelamin' => 'required|string|size:1',
@@ -53,24 +50,24 @@ class AnggotaController extends Controller
     	$this->validate($request,$rule);
 
     	$input = $request->all();
-    	unset($input['_token']);
-    	unset($input['_method']);
-    	$status = \DB::table('t_anggota')->where('id',$id)->update($input);
+        $anggota = \App\Anggota::find($id);
+    	$status = $anggota->update($input);
 
     	if ($status) {
-    		return redirect('/absensi')->with('success','Data Berhasil Diubah');
+    		return redirect('/absensi/anggota')->with('success','Data Berhasil Diubah');
     	}else{
-    		return redirect('/absensi/ubah')->with('error','Data Gagal Diubah');
+    		return redirect('/absensi/anggota/ubah')->with('error','Data Gagal Diubah');
     	}
     }
     
     public function destroy(Request $request, $id){
-    	$status = \DB::table('t_anggota')->where('id',$id)->delete();
+        $anggota = \App\Anggota::find($id);
+    	$status = $anggota->delete();
 
     	if ($status) {
-    		return redirect('/absensi')->with('success','Data Berhasil Dihapus');
+    		return redirect('/absensi/anggota')->with('success','Data Berhasil Dihapus');
     	}else{
-    		return redirect('/absensi/ubah')->with('error','Data Gagal Dihapus');
+    		return redirect('/absensi/anggota/ubah')->with('error','Data Gagal Dihapus');
     	}
     }
 }
