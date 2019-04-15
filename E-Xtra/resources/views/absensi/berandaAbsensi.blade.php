@@ -17,19 +17,16 @@
 		{{ session('success') }}
 	</div>
 	@endif
-
 	@if(session('error'))
 	<div class="alert alert-error">
 		{{ session('error') }}
 	</div>
 	@endif
-
 	@php
 		use Carbon\Carbon;
 
 		$today = Carbon::today();
 	@endphp
-
 	<div class="container">
 	 <div class="row">
 		 <div class="col-md-1-12">
@@ -38,15 +35,11 @@
 				<div class="card-body">
 				Hari ini, {{ $today->toDateString() }}
 			<br>
-			
 				<a class="btn btn-primary" href="{{url('/absensi/buatKumpul')}}">MULAI</a>
-			
-
 			<div>
 				Jumlah Anggota : xx
 				<a href="{{ url('/absensi/anggota') }}">Details</a>
 			</div>
-
 			<div>
 				Jumlah Pertemuan hingga hari ini : xx
 				<a href="{{ url('/absensi/rekapan') }}">Lihat Rekap</a>

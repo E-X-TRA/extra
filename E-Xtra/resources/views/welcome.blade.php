@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Timmana" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400i,700i" rel="stylesheet">
 
         <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
@@ -22,11 +23,18 @@
         margin-top: 100px;
         color: white;
     }
-</style>
+    .ibm{
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-size: 120px;
+        margin-top: 10px;
+        color: white;
+    }
+
+        </style>
     </head>
     <body>
     <div class="parallax"></div>
-    <div style="height: 42em;" class="warna">
+    <div style="height: 45em;" class="warna">
         <div class="container-fluid">
             <div class="row">
                 <div class="col"></div>
@@ -40,7 +48,7 @@
         </div>
     </div>
      <div class="container-fluid">
-        <div class="row" style="margin-top: 100px">
+        <div class="row" style="margin-top: 100px; margin-bottom: 11em;">
             <div class="col">
                     <div class="container-gmb hover-blur">
                         <img class="image" src="img/check-square.png" alt="">
@@ -67,20 +75,14 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid" style="margin-top: 8em;background-color: #042a2b;">
+    <div class="container-fluid" style="margin-top: 8em;background-color: #1e2749;">
+                <h1 class="ibm text-center">Our Team</h1>
         <div class="row">
-            <div class="col"></div>
-            <div class="col-6">
-                <h1 class="timmana">Our Team</h1>
-            </div>
-            <div class="col"></div>
-        </div>
-        <div class="row">
-            <div class="container">
+            <div class="container" style="margin-top: 3em; margin-bottom: 3em;">
                 <div class="row">
                     <div class="col">
-                        <div class="card" style="width:200px">
-                            <img class="card-img-top" src="img/alvaro.jpg" alt="Card image" style="width:100%">
+                        <div class="card" style="width:275px; margin-left: 40px; border-width: 5px;" >
+                            <img class="card-img-top" src="img/paro.jpg" alt="Card image" style="width:100%;">
                             <div class="card-body">
                               <h3 class="card-title">Back-end</h3>
                               <img src="img/back-end.png" alt="Front End image"  class="card-title float-right" width="50px">
@@ -89,22 +91,21 @@
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card" style="width:300px">
-                            <img class="card-img-top" src="img/haikal.jpg" alt="Card image" style="width:100%">
+                        <div class="card" style="width:275px; margin-left: 40px; border-width: 5px;" >
+                            <img class="card-img-top" src="img/ikal.jpg" alt="Card image" style="width:100%;">
                             <div class="card-body">
                               <h3 class="card-title">Front-end</h3>
                               <img src="img/front-end.png" alt="Front End image"  class="card-title float-right" width="50px">
-                              <h5 class="card-title">M. Haikal  </h5>
+                              <h5 class="card-title">M. Haikal </h5>
                             </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card" style="width:300px">
-                            <img class="card-img-top" src="img/raihan.jpg" alt="Card image" style="width:100%">
+                        <div class="card" style="width:275px; margin-left: 40px; border-width: 5px;" >
+                            <img class="card-img-top" src="img/gaming.jpg" alt="Card image" style="width:100%;">
                             <div class="card-body">
                               <h3 class="card-title">Front-end</h3>
                               <img src="img/front-end.png" alt="Front End image"  class="card-title float-right" width="50px">
-
                               <h5 class="card-title">Raihan Putra </h5>
                             </div>
                         </div>
