@@ -135,7 +135,7 @@
             </nav>
 
             <div class="flex-center position-ref full-height">
-            
+
             <div class="content">
                 <div class="title m-b-md">
                     E-Xtra
@@ -150,16 +150,16 @@
             <div class="card card-body">
                     <h4 class="card-title">Absensi</h4>
                     <p class="card-text">Cek kehadiran ekskul disini</p>
-                    <a href="http://localhost/E-Xtra/public/absensi" class="btn btn-primary">More</a>
+            <a href="{{ url('/absensi') }}" class="btn btn-primary">More</a>
             </div>
             <div class="card card-body">
                     <h4 class="card-title">Uang Kas</h4>
                     <p class="card-text">Awasi pemasukan ekskul disini</p>
-                    <a href="http://localhost/E-Xtra/public/uangKas" class="btn btn-primary">More</a>
+                    <a href="{{ url('/uangKas') }}" class="btn btn-primary">More</a>
             </div>
         </div>
     </div>
-        
+
     </body>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
