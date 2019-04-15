@@ -2,8 +2,16 @@
 <html>
 <head>
 	<title>Absensi</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css')}}">
+	<link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css')}}">
+
+	<script type="text/javascript" src="public/js/jquery.min.js"></script>
+	<script type="text/javascript" src="public/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="bg-grd">
 	@if(session('success'))
 	<div class="alert alert-success">
 		{{ session('success') }}
@@ -15,7 +23,8 @@
 		{{ session('error') }}
 	</div>
 	@endif
-<table>
+	<div class="container">
+	<table class="table table-dark">
 	
 	<?php
 	use Carbon\Carbon;
@@ -24,7 +33,7 @@
 	 ?>
 	 Hari ini, {{ $today->toDateString() }}
 	<div>
-		<a href="{{ url('/absensi/mengabsen/mulai') }}">MULAI MENGABSEN</a>
+		<a class="btn btn-info" href="{{ url('/absensi/mengabsen/mulai') }}">MULAI MENGABSEN</a>
 	</div>
 
 
@@ -34,7 +43,7 @@
 		<th>Nama</th>
 		<th>Kelas</th>
 		<th>Gender</th>
-		<th>Aksi</th>
+		<th class="col-sm-" colspan="2"><center>Aksi</center></th>
 	</tr>
 	@foreach ($anggota as $data)
 	<tr>
@@ -55,5 +64,6 @@
 	</tr>
 	@endforeach
 </table>
+	</div>
 </body>
 </html>
