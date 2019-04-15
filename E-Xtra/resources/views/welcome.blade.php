@@ -7,6 +7,8 @@
         <title>E-Xtra</title>
 
         <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Timmana" rel="stylesheet">
+
         <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
@@ -179,7 +181,7 @@
                       background-color: #007bff
             }
             .timmana {
-                    font-family: 'Timmana';
+                    font-family: 'Timmana', sans-serif;
                     font-size: 175px;
                     margin-top: 100px;
                     color: white;
