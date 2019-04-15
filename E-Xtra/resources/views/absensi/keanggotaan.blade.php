@@ -25,22 +25,28 @@
 
 	$today = Carbon::today();
 	 ?>
-	 Hari ini, {{ $today->toDateString() }}
-	<div>
-		<a href="{{ url('/absensi/mengabsen/mulai') }}">MULAI MENGABSEN</a>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-1-12">
+				Hari ini, {{ $today->toDateString() }}
+			<div>
+				<a href="{{ url('/absensi/mengabsen/mulai') }}">MULAI MENGABSEN</a>
+			</div>
+
+
+			<a href="{{ url('/absensi/tambah') }}" class="btn btn-primary mb-2">Tambah</a>
+		</div>
 	</div>
-
-
-	<a href="{{ url('/absensi/tambah') }}" class="btn btn-primary mb-2">Tambah</a>
+</div>
 	
-<table id="tabelAnggota" class="">
+<table id="tabelAnggota" class="table table-dark table-striped">
 	<thead>
 		<tr>
 		<th>Nama</th>
 		<th>Kelas</th>
 		<th>Gender</th>
-		<th>Edit</th>
-		<th>Delete</th>
+		<th colspan="2"><center>Action</center></th>
+		
 		</tr>
 	</thead>
 	<tbody>
