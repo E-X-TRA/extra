@@ -144,18 +144,7 @@
 ::-webkit-scrollbar-thumb{
     background: -webkit-linear-gradient(#9b89625e,#7c6b4c)
 }
-.parallax{
-  /* The image used */
-    background-image: url("img/logo.png");
-  /* Set a specific height */
-  min-height: 680px;
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 250px;
-  background-color: #007bff
-}
+
 
 .warna{
     background: linear-gradient(to bottom left, #003366 0%, #006496 100%);
