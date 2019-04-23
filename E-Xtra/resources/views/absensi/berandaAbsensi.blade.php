@@ -29,7 +29,7 @@
 	@php
 		use Carbon\Carbon;
 
-		$today = Carbon::today();
+		$today  = Carbon::today();
 	@endphp
     <div class="container">
         <div class="row">
@@ -37,7 +37,7 @@
             <div class="col-10">
                 <div class="card" style="margin:210px; padding: 30px;">
                     <div class="card-body">
-                        <h4 class="card-title text-center">Hari ini, {{ $today->toDateString() }}</h4>
+                        <h4 class="card-title text-center">{{ $today->isoFormat('dddd , Do MMMM GGGG') }}</h4>
                         <p class="card-text">Jumlah Anggota : xx <a href="{{ url('/absensi/anggota') }}"">Details</a></p>
                         <p class="card-text">Jumlah Pertemuan hingga hari ini : xx <a href="{{ url('/absensi/rekapan') }}">Lihat Rekap</a></p>
                         <a class="btn btn-primary card-link" href="{{url('/absensi/buatKumpul')}}">MULAI</a>
