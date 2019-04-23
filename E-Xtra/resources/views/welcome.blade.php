@@ -53,6 +53,22 @@
                 <div class="col-6">
                     <div class="text-center">
                         <h1 class="timmana">E-[X]tra</h1>
+                        @guest
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            @if (Route::has('register'))
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            @endif
+                        @else
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                        @endguest
                         <h4 class="text-capitalize" style="color: white; margin-bottom: px;">dimana kami membuat semua hal lebih mudah</h4>
                     </div>
                 </div>
@@ -65,7 +81,9 @@
                     <div class="container-gmb hover-blur">
                         <img class="image" src={{ asset('img/check-square.png') }} alt="">
                         <div class="overlay">
-                            <div class="text" style="left:10px;">Absensi</div>
+                            <div class="text" style="left:10px;">
+                                <a href="{{ url('absensi') }}"><label>Absensi</label></a>
+                            </div>
                         </div>
                     </div>
             </div>
@@ -73,7 +91,9 @@
                     <div class="container-gmb hover-blur">
                         <img class="image" src="{{ asset('img/note.png') }}" alt="">
                         <div class="overlay">
-                            <div class="text">Anggota</div>
+                            <div class="text">
+                                <a href="{{ url('anggota') }}"><label>Anggota</label></a>
+                            </div>
                         </div>
                     </div>
             </div>
@@ -81,7 +101,9 @@
                     <div class="container-gmb hover-blur">
                         <img class="image" src="{{ asset('img/money.png') }}" alt="">
                         <div class="overlay">
-                            <div class="text">Uang Kas</div>
+                            <div class="text">
+                                <a href="{{ url('uangKas') }}"><label>UangKas</label></a>
+                            </div>
                         </div>
                     </div>
             </div>

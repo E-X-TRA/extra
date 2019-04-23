@@ -14,24 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+//untuk absen
 Route::get('/absensi','AbsensiController@index');
 Route::get('/absensi/rekapan', 'PertemuanController@index');
 Route::get('/absensi/buatKumpul','PertemuanController@create');
 Route::post('/absensi','PertemuanController@store');
-
-
-Route::get('/absensi/anggota', 'AnggotaController@index');
-Route::get('/absensi/anggota/tambah','AnggotaController@create');
-Route::post('/absensi/anggota','AnggotaController@store');
-Route::get('/absensi/anggota/{id}/ubah','AnggotaController@edit');
-Route::patch('/absensi/anggota/{id}','AnggotaController@update');
-Route::delete('absensi/anggota/{id}','AnggotaController@destroy');
-
+//untuk anggota
+Route::get('/anggota', 'AnggotaController@index');
+Route::get('/anggota/tambah','AnggotaController@create');
+Route::post('/anggota','AnggotaController@store');
+Route::get('/anggota/{id}/ubah','AnggotaController@edit');
+Route::patch('/anggota/{id}','AnggotaController@update');
+Route::delete('/anggota/{id}','AnggotaController@destroy');
+//untuk rekapan
 Route::get('/absensi/rekapan/pertemuan/{id}','AbsensiController@indexRekapan');
 Route::get('/absensi/mengabsen/', 'AbsensiController@indexAbsen');
 Route::post('/absensi/mengabsen/', 'AbsensiController@storeAbsen');
-
+//untuk uangkas
 Route::get('/uangKas','KasController@index');
 Route::get('/uangKas/catat','KasController@create');
 Route::post('/uangKas','KasController@store');
