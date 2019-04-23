@@ -41,7 +41,6 @@
         background-size: 250px;
         background-color: #007bff;
 }
-
         </style>
     </head>
     <body>
