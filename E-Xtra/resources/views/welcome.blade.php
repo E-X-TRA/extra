@@ -62,20 +62,24 @@
      <div class="container-fluid">
         <div class="row" style="margin-top: 100px; margin-bottom: 11em;">
             <div class="col">
-                    <div class="container-gmb hover-blur">
-                        <img class="image" src={{ asset('img/check-square.png') }} alt="">
-                        <div class="overlay">
-                            <div class="text" style="left:10px;">Absensi</div>
-                        </div>
+            <a href="{{ url('absensi/') }}">
+                <div class="container-gmb hover-blur">
+                    <img class="image" src={{ asset('img/check-square.png') }} alt="">
+                    <div class="overlay">
+                        <div class="text" style="left:10px;">Absensi</div>
                     </div>
+                </div>
+            </a>
             </div>
             <div class="col">
+            <a href="{{ url('/absensi/anggota') }}">
                     <div class="container-gmb hover-blur">
                         <img class="image" src="{{ asset('img/note.png') }}" alt="">
                         <div class="overlay">
                             <div class="text">Anggota</div>
                         </div>
                     </div>
+            </a>
             </div>
             <div class="col">
                     <div class="container-gmb hover-blur">
