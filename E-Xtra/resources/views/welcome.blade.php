@@ -12,12 +12,18 @@
         <link href="https://fonts.googleapis.com/css?family=Timmana" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400i,700i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Timmana" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet">
 
         {{-- CSS --}}
         <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
 <style>
+    .fugaz{
+        font-family: 'Fugaz One', cursive;
+        color: white;
+        font-size: 25px;
+    }
     .timmana {
         font-family: 'Timmana';
         font-size: 175px;
@@ -46,7 +52,7 @@
     </head>
     <body>
     <div class="parallax"></div>
-    <div style="height: 45em;" class="warna">
+    <div style="height: 55em;" class="warna">
         <div class="container-fluid">
             <div class="row">
                 <div class="col"></div>
@@ -54,9 +60,9 @@
                     <div class="text-center">
                         <h1 class="timmana">E-[X]tra</h1>
                         @guest
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="btn btn-lg btn-primary float-left" href="{{ route('login') }}">{{ __('Login') }}</a>
                             @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="btn btn-lg btn-primary float-right" href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
                         @else
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -69,7 +75,7 @@
                                         @csrf
                                     </form>
                         @endguest
-                        <h4 class="text-capitalize" style="color: white; margin-bottom: px;">dimana kami membuat semua hal lebih mudah</h4>
+                        <h4 class="text-capitalize fugaz" style="color: white; margin-top: 150px;">"dimana kami membuat semua hal lebih mudah"</h4>
                     </div>
                 </div>
             <div class="col"></div>
@@ -82,7 +88,7 @@
                         <img class="image" src={{ asset('img/check-square.png') }} alt="">
                         <div class="overlay">
                             <div class="text" style="left:10px;">
-                                <a href="{{ url('absensi') }}"><label>Absensi</label></a>
+                                <a href="{{ url('absensi') }}" style="color: white;"><label>Absensi</label></a>
                             </div>
                         </div>
                     </div>
@@ -92,7 +98,7 @@
                         <img class="image" src="{{ asset('img/note.png') }}" alt="">
                         <div class="overlay">
                             <div class="text">
-                                <a href="{{ url('anggota') }}"><label>Anggota</label></a>
+                                <a href="{{ url('anggota') }}" style="color: white;"><label>Anggota</label></a>
                             </div>
                         </div>
                     </div>
@@ -102,22 +108,14 @@
                         <img class="image" src="{{ asset('img/money.png') }}" alt="">
                         <div class="overlay">
                             <div class="text">
-                                <a href="{{ url('uangKas') }}"><label>UangKas</label></a>
+                                <a href="{{ url('uangKas') }}" style="color: white;"><label>UangKas</label></a>
                             </div>
-                        </div>
-                    </div>
-            </div>
-            <div class="col">
-                    <div class="container-gmb hover-blur">
-                        <img class="image" src="{{ asset('img/aboutUs.png') }}" alt="">
-                        <div class="overlay">
-                            <div class="text">About Us</div>
                         </div>
                     </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid " style="height: 20em; background-color: black ;color:white; margin-top: 11 em;">
+    <div class="container-fluid " style="height: 20em; background-color: black ;color:white; margin-top: ;">
         <div class="row">
             <div class="col text-center">
                 <h4>Dibuat Oleh Siswa SMKN 4 Bandung</h4>
@@ -136,6 +134,7 @@
                 <p>Alvaro Dwi - Back End</p>
                 <p>M Haikal - Front End</p>
                 <p>Raihan Putra - Front End</p>
+                <p>Telp/Fax : (022) - 7303736</p>
             </div>
         </div>
     </div>
