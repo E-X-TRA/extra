@@ -97,8 +97,6 @@
                         </div>
                     </div>
                 </div>
-            </a>
-            </div>
             <div class="col">
             <a href="{{ url('/absensi/anggota') }}">
                     <div class="container-gmb hover-blur">
