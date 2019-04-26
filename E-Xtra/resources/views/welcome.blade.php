@@ -6,17 +6,24 @@
 
         <title>E-Xtra</title>
 
+        <link rel="icon" href="{{ asset('img/logo.png') }}" >
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Timmana" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400i,700i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Timmana" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet">
 
-        <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
+        {{-- CSS --}}
         <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Timmana" rel="stylesheet">
+
 <style>
+    .fugaz{
+        font-family: 'Fugaz One', cursive;
+        color: white;
+        font-size: 25px;
+    }
     .timmana {
         font-family: 'Timmana';
         font-size: 175px;
@@ -31,7 +38,7 @@
     }
     .parallax{
         /* The image used */
-        background-image: url({{ asset('img/logo.png') }});
+        background-image: url(img/logo.png);
         /* Set a specific height */
         min-height: 680px;
         /* Create the parallax scrolling effect */
@@ -45,27 +52,45 @@
     </head>
     <body>
     <div class="parallax"></div>
-    <div style="height: 45em;" class="warna">
+    <div style="height: 55em;" class="warna">
         <div class="container-fluid">
             <div class="row">
                 <div class="col"></div>
                 <div class="col-6">
                     <div class="text-center">
                         <h1 class="timmana">E-[X]tra</h1>
-                        <h4 class="text-capitalize" style="color: white; margin-bottom: px;">dimana kami membuat semua hal lebih mudah</h4>
+                        @guest
+                                <a class="btn btn-lg btn-primary float-left" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            @if (Route::has('register'))
+                                    <a class="btn btn-lg btn-primary float-right" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            @endif
+                        @else
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                        @endguest
+                        <h4 class="text-capitalize fugaz" style="color: white; margin-top: 150px;">"dimana kami membuat semua hal lebih mudah"</h4>
                     </div>
                 </div>
             <div class="col"></div>
         </div>
     </div>
      <div class="container-fluid">
-        <div class="row" style="margin-top: 100px; margin-bottom: 11em;">
+        <div class="row" style="margin-top: 120px; margin-bottom: 11em;">
             <div class="col">
-            <a href="{{ url('absensi/') }}">
-                <div class="container-gmb hover-blur">
-                    <img class="image" src={{ asset('img/check-square.png') }} alt="">
-                    <div class="overlay">
-                        <div class="text" style="left:10px;">Absensi</div>
+                    <div class="container-gmb hover-blur">
+                        <img class="image" src={{ asset('img/check-square.png') }} alt="">
+                        <div class="overlay">
+                            <div class="text" style="left:10px;">
+                                <a href="{{ url('absensi') }}" style="color: white;"><label>Absensi</label></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </a>
@@ -75,7 +100,9 @@
                     <div class="container-gmb hover-blur">
                         <img class="image" src="{{ asset('img/note.png') }}" alt="">
                         <div class="overlay">
-                            <div class="text">Anggota</div>
+                            <div class="text">
+                                <a href="{{ url('anggota') }}" style="color: white;"><label>Anggota</label></a>
+                            </div>
                         </div>
                     </div>
             </a>
@@ -84,59 +111,45 @@
                     <div class="container-gmb hover-blur">
                         <img class="image" src="{{ asset('img/money.png') }}" alt="">
                         <div class="overlay">
-                            <div class="text">Uang Kas</div>
+                            <div class="text">
+                                <a href="{{ url('uangKas') }}" style="color: white;"><label>UangKas</label></a>
+                            </div>
                         </div>
                     </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid" style="margin-top: 8em;background-color: #1e2749;">
-                <h1 class="ibm text-center">Our Team</h1>
+    <div class="container-fluid " style="height: 20em; background-color: black ;color:white; margin-top: ;">
         <div class="row">
-            <div class="container" style="margin-top: 3em; margin-bottom: 3em;">
-                <div class="row">
-                    <div class="col">
-                        <div class="card" style="width:275px; margin-left: 40px; border-width: 5px;" >
-                            <img class="card-img-top" src="{{ asset('img/paro.jpg') }}" alt="Card image" style="width:100%;">
-                            <div class="card-body">
-                              <h3 class="card-title">Back-end</h3>
-                              <img src="{{ asset('img/back-end.png') }}" alt="Front End image"  class="card-title float-right" width="50px">
-                              <h5 class="card-title">Alvaro Dwi </h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card" style="width:275px; margin-left: 40px; border-width: 5px;" >
-                            <img class="card-img-top" src="{{ asset('img/ikal.jpg') }}" alt="Card image" style="width:100%;">
-                            <div class="card-body">
-                              <h3 class="card-title">Front-end</h3>
-                              <img src="{{ asset('img/front-end.png') }}" alt="Front End image"  class="card-title float-right" width="50px">
-                              <h5 class="card-title">M. Haikal </h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card" style="width:275px; margin-left: 40px; border-width: 5px;" >
-                            <img class="card-img-top" src="{{ asset('img/gaming.jpg') }}" alt="Card image" style="width:100%;">
-                            <div class="card-body">
-                              <h3 class="card-title">Front-end</h3>
-                              <img src="{{ asset('img/front-end.png') }}" alt="Front End image"  class="card-title float-right" width="50px">
-                              <h5 class="card-title">Raihan Putra </h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col text-center">
+                <h4>Dibuat Oleh Siswa SMKN 4 Bandung</h4>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px">
+            <div class="col">
+                <h4 class="text-center">powered by</h4>
+                <img src="{{ asset('img/smkn4-2.png') }}" alt="Logo Smkn 4" width="200px;" class="mx-auto d-block " style="margin-top: 20px">
+            </div>
+            <div class="col-2" style="margin-top: 100px; margin-left: 200px;margin-right: 200px;">
+                <h6>Copyright 2019 @ E-[X]tra </h6>
+            </div>
+            <div class="col" style="">
+                <h4>About us</h4>
+                <p>Alvaro Dwi - Back End</p>
+                <p>M Haikal - Front End</p>
+                <p>Raihan Putra - Front End</p>
+                <p>Telp/Fax : (022) - 7303736</p>
             </div>
         </div>
     </div>
-
 
 
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="{{ asset('/js/app.js') }}"></script>
-        <script src="{{ asset('/js/bootstrap.js') }}"></script>
+
+        <script src="{{ asset('/js/jquery.slim.min.js') }}"></script>
+        <script src="{{ asset('/js/popper.min.js') }}"></script>
         <script src="{{ asset('/js/bootstrap.min.js')}}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>

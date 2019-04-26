@@ -2,6 +2,13 @@
 <html>
 <head>
 	<title>Absensi</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap.css')}}">
+
+	<script type="text/javascript" src="public/js/jquery.min.js"></script>
+	<script type="text/javascript" src="public/js/bootstrap.min.js"></script>
 </head>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.0.min.js"></script>
@@ -17,7 +24,7 @@
 		{{ session('error') }}
 	</div>
 	@endif
-<table>
+	<div class="container">
 	<?php
 	use Carbon\Carbon;
 
@@ -53,5 +60,7 @@
 		
 		<input class="btn btn-success" type="submit" value="SUBMIT">
 	</form>
+	 </div>
+	 
 </body>
 </html>

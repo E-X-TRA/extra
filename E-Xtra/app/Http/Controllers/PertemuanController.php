@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class PertemuanController extends Controller
-{
+{   
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(){
     	$data['pertemuan'] = \App\Pertemuan::get();
     	return view('absensi.rekapan',$data);

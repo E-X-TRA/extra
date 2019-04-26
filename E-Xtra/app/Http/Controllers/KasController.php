@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class KasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(){
 		$data['uangKas'] = \DB::table('t_kas')
         ->join('t_pertemuan','t_kas.id_pertemuan','=','t_pertemuan.id')

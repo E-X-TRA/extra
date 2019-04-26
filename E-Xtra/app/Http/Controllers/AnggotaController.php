@@ -30,9 +30,9 @@ class AnggotaController extends Controller
     	$status = \App\Anggota::create($input);
 
     	if ($status) {
-    		return redirect('/absensi/anggota')->with('success','Data Berhasil Ditambahkan');
+    		return redirect('/anggota')->with('success','Data Berhasil Ditambahkan');
     	}else{
-    		return redirect('/absensi/anggota/ubah')->with('error','Data Gagal Ditambahkan');
+    		return redirect('/anggota/ubah')->with('error','Data Gagal Ditambahkan');
     	}
     }
 
@@ -54,9 +54,9 @@ class AnggotaController extends Controller
     	$status = $anggota->update($input);
 
     	if ($status) {
-    		return redirect('/absensi/anggota')->with('success','Data Berhasil Diubah');
+    		return redirect('/anggota')->with('success','Data Berhasil Diubah');
     	}else{
-    		return redirect('/absensi/anggota/ubah')->with('error','Data Gagal Diubah');
+    		return redirect('/anggota/ubah')->with('error','Data Gagal Diubah');
     	}
     }
     
@@ -65,9 +65,9 @@ class AnggotaController extends Controller
     	$status = $anggota->delete();
 
     	if ($status) {
-    		return redirect('/absensi/anggota')->with('success','Data Berhasil Dihapus');
+    		return redirect('/anggota')->with('success','Data Berhasil Dihapus');
     	}else{
-    		return redirect('/absensi/anggota/ubah')->with('error','Data Gagal Dihapus');
+    		return redirect('/anggota/ubah')->with('error','Data Gagal Dihapus');
     	}
     }
 }
