@@ -3,6 +3,9 @@
 <head>
 	<title>Tabel Kas</title>
 </head>
+
+<link rel="icon" href="{{ asset('img/logo.png') }}" >
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css')}}">
 <body>
 @if(session('success'))

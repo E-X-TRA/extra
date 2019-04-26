@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Absensi</title>
+    <title>Absensi</title>
+
+    <link rel="icon" href="{{ asset('img/logo.png') }}" >
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +32,7 @@
 
 	$today = Carbon::today();
 	 ?>
-	 
+
 		<form action="{{ url('absensi/mengabsen') }}" method="POST">
 			@csrf
 			<input type="text" name="tanggal" value="{{ $today->toDateString() }}"><br>
@@ -48,20 +50,20 @@
 						<input type="hidden" name="tanggal[{{ $data->id }}]" value="{{ $today->toDateString() }}">
 						{{ $data->nama }}
 					</td>
-					
+
 					<td>
 						<input type="radio" name="kehadiran[{{ $data->id }}]" value="hadir">Hadir
 						<input type="radio" name="kehadiran[{{ $data->id }}]" value="tidak hadir">Tidak Hadir
 					</td>
 				</tr>
-				@endforeach	
+				@endforeach
 			</table>
 
 			<br>
-		
+
 		<input class="btn btn-success" type="submit" value="SUBMIT">
 	</form>
 	 </div>
-	 
+
 </body>
 </html>

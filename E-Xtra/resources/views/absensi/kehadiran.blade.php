@@ -4,6 +4,7 @@
 	<title>Tabel Kehadiran</title>
 </head>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+<link rel="icon" href="{{ asset('img/logo.png') }}" >
 <body>
 @if(session('success'))
 	<div class="alert alert-success">
