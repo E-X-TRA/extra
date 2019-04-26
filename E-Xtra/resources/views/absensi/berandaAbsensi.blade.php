@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css')}}">
 
     <style>
-        body{
-            background-color:
-        }
+
     </style>
 
 </head>
@@ -48,8 +46,10 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="public/js/jquery.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script type="text/javascript" src="public/js/bootstrap.min.js"></script>
+        {{-- javascript --}}
+    <script src="{{ asset('/js/jquery.slim.min.js') }}"></script>
+    <script src="{{ asset('/js/popper.min.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap.min.js')}}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </body>
 </html>

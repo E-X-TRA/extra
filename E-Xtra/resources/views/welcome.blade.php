@@ -65,7 +65,7 @@
                                     <a class="btn btn-lg btn-primary float-right" href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
                         @else
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="btn btn-lg btn-primary" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -75,10 +75,14 @@
                                         @csrf
                                     </form>
                         @endguest
-                        <h4 class="text-capitalize fugaz" style="color: white; margin-top: 150px;">"dimana kami membuat semua hal lebih mudah"</h4>
                     </div>
                 </div>
             <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h4 class="text-capitalize fugaz text-center" style="color: white; margin-top: 50px;">"dimana kami membuat semua hal lebih mudah"</h4>
+            </div>
         </div>
     </div>
      <div class="container-fluid">

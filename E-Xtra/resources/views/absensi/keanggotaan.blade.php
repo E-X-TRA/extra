@@ -25,14 +25,17 @@
 
 	$today = Carbon::today();
 	@endphp
-	<h1>DAFTAR ANGGOTA</h1>
+	<h1 class="text-center">DAFTAR ANGGOTA</h1>
 	 @auth {{-- kalo belom login gabakal muncul --}}
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-1-12">
-				Hari ini, {{ $today->toDateString() }}
-			<a href="{{ url('/anggota/tambah') }}" class="btn btn-primary mb-2">Tambah</a>
-		</div>
+		<div class="col">
+			 <p class="float-left" style="font-size: 20px;">Hari ini, {{ $today->toDateString() }}</p>
+        </div>
+        <div class="col"></div>
+        <div class="col">
+            <a href="{{ url('/anggota/tambah') }}" class="btn btn-primary mb-2 float-right">Tambah</a>
+        </div>
 	</div>
 </div>
 	@endauth
