@@ -3,35 +3,47 @@
 <head>
 	<title>Buat Pertemuan</title>
 </head>
-<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-<body>
+
+{{-- css --}}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css')}}">
+<link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css')}}">
+
+<body style="background-color: #042a2b">
 <div class="container">
 	<div class="row">
-		<div class="col-md-1-12">
-		<h1>Form Pertemuan</h1>
-	@php
-		use Carbon\Carbon;
+		<div class="col"></div>
+        <div class="col-8" style="margin-top: 100px;">
+            @php
+		        use Carbon\Carbon;
 
-		$today = Carbon::today();
-	@endphp
-<form method="POST" action="{{ url('/absensi') }}">
-	@csrf
-			<div class="card">
-				<img class="card-img-top" src="holder.js/100x180/" alt="">
-				<div class="card-body">
-				<label>Tanggal</label>
-				<input type="date" name="tanggal" value="{{ $today->toDateString() }}">
-				<br>
-				<label>Kegiatan</label>
-				<input type="text" name="kegiatan"><br>
-				<input class="btn btn-primary" type="submit" value="SUBMIT">
-				</div>
-			</div>
-		</div>
+		        $today = Carbon::today();
+	        @endphp
+            <form method="POST" action="{{ url('/absensi') }}">
+	            @csrf
+            <div class="jumbotron jumbotron">
+                <div class="container">
+                    <h1 class="display-3">Form Pertemuan</h1>
+                    <div class="form-group">
+                        <label for="tgl">Tanggal :</label>
+                        <input type="date" name="tanggal" value="{{ $today->toDateString() }}" id="tgl" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="kegiatan">Kegiatan :</label>
+                        <input type="text" name="kegiatan" id="kegiatan" class="form-control">
+                    </div>
+                        <hr>
+                    <input class="btn btn-primary" type="submit" value="SUBMIT">
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="col"></div>
 	</div>
 </div>
 
-
-</form>
+{{-- JavaScript --}}
+<script src="{{ asset('/js/jquery.slim.min.js') }}"></script>
+<script src="{{ asset('/js/popper.min.js') }}"></script>
+<script src="{{ asset('/js/bootstrap.min.js')}}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
