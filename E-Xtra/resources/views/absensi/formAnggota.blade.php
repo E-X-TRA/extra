@@ -4,6 +4,7 @@
 	<title>Form Input Anggota</title>
 </head>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+<link rel="icon" href="{{ asset('img/logo.png') }}" >
 <body>
 @if(session('error'))
 <div class="alert alert-error">
@@ -13,7 +14,7 @@
 
 @if(count($errors) > 0)
 <div class="alert alert-danger">
-	<strong>PERHATIAN</strong><br> 
+	<strong>PERHATIAN</strong><br>
 	<ul>
 		@foreach ($errors->all() as $error)
 		<li>{{ $error }}</li>

@@ -3,12 +3,13 @@
 <head>
 	<title></title>
 </head>
+<link rel="icon" href="{{ asset('img/logo.png') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 <body>
 Disini tuh inginnya muncul data umum pertemuan kita
 <br>
 Jumlah Pertemuan : 0 -> tolong jadiin card
-<br>	
+<br>
 <br>
 <table>
 	<thead>
