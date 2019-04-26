@@ -40,10 +40,11 @@
 					<th>Anggota</th>
 					<th>Kehadiran</th>
 				</tr>
+				<input type="hidden" name="id_pertemuan" value="{{ $pertemuan }}">
 				@foreach ($absen as $data)
 				<tr>
 					<td>
-						<input type="hidden" name="nik[{{ $data->id }}]" value="{{ $data->nik }}">
+						<input type="hidden" name="id[{{ $data->id }}]" value="{{ $data->id }}">
 						<input type="hidden" name="tanggal[{{ $data->id }}]" value="{{ $today->toDateString() }}">
 						{{ $data->nama }}
 					</td>

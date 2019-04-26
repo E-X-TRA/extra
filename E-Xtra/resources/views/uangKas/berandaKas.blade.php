@@ -33,7 +33,7 @@
 		<td>{{ $data->tanggal }}</td>
 		<td>{{ $data->jumlah_masuk }}</td>
 		<td>
-			<form action="{{ url('/uangKas/catatKas/' . $data->id) }}" method="POST">
+			<form action="{{ url('/uangKas/catat/' . $data->id) }}" method="POST">
 				@method('DELETE')
 				@csrf
 				<button type="submit" class="btn btn-danger">Delete</button>

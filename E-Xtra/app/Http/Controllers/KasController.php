@@ -48,9 +48,9 @@ class KasController extends Controller
     	$status = $kas->delete();
 
     	if ($status) {
-    		return redirect('/uangKas')->with('success','Data Berhasil Ditambahkan');
+    		return redirect('/uangKas')->with('success','Data Berhasil Dihapus');
     	}else{
-    		return redirect('/uangKas')->with('error','Data Gagal Ditambahkan');
+    		return redirect('/uangKas')->with('error','Data Gagal Dihapus');
     	}
 
     }

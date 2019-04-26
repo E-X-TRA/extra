@@ -16,6 +16,7 @@ class AbsensiController extends Controller
     {
         $this->middleware('auth');
     }
+    
     public function index(){
         return view('absensi.berandaAbsensi'); 
     }
@@ -38,14 +39,17 @@ class AbsensiController extends Controller
 
     public function storeAbsen(Request $request){
     	$input = $request->all();
+        
 
     	$id = $request->input('id.*');
+        print_r($id);
+        print_r(sizeof($id));
     	$hadir = $request->input('kehadiran.*');
         $pertemuan = $request->input('id_pertemuan');
 
-
         unset($input['_token']);
-        for ($i=0; $i < sizeof($input); $i++) { 
+        
+        for ($i=0; $i < sizeof($id); $i++) { 
             $status = \DB::table('t_kehadiran')->insert([
             ['id' => NULL,'id_pertemuan' => $pertemuan,'id_anggota' => $id[$i],'kehadiran' => $hadir[$i]]
         ]);
