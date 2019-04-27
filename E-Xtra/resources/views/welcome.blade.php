@@ -88,38 +88,41 @@
      <div class="container-fluid">
         <div class="row" style="margin-top: 120px; margin-bottom: 11em;">
             <div class="col">
+            <a href="{{ url('absensi') }}" style="color: white;">
                     <div class="container-gmb hover-blur">
                         <img class="image" src={{ asset('img/check-square.png') }} alt="">
                         <div class="overlay">
                             <div class="text" style="left:10px;">
-                                <a href="{{ url('absensi') }}" style="color: white;"><label>Absensi</label></a>
+                                <label>Absensi</label>
                             </div>
                         </div>
                     </div>
-                </div>
-            </a>
             </div>
+            </a>
+
             <div class="col">
-            <a href="{{ url('/absensi/anggota') }}">
+                <a href="{{ url('anggota') }}" style="color: white;">
                     <div class="container-gmb hover-blur">
-                        <img class="image" src="{{ asset('img/note.png') }}" alt="">
-                        <div class="overlay">
-                            <div class="text">
-                                <a href="{{ url('anggota') }}" style="color: white;"><label>Anggota</label></a>
+                            <img class="image" src="{{ asset('img/note.png') }}" alt="">
+                            <div class="overlay">
+                                <div class="text">
+                                    <label>Anggota</label>
+                                </div>
                             </div>
-                        </div>
                     </div>
-            </a>
+                </a>
             </div>
             <div class="col">
+            <a href="{{ url('uangKas') }}" style="color: white;">
                     <div class="container-gmb hover-blur">
                         <img class="image" src="{{ asset('img/money.png') }}" alt="">
                         <div class="overlay">
                             <div class="text">
-                                <a href="{{ url('uangKas') }}" style="color: white;"><label>UangKas</label></a>
+                                <label>UangKas</label>
                             </div>
                         </div>
                     </div>
+                </a>
             </div>
         </div>
     </div>
