@@ -3,6 +3,9 @@
 <head>
 	<title>Tabel Kas</title>
 </head>
+
+<link rel="icon" href="{{ asset('img/logo.png') }}" >
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css')}}">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.0.min.js"></script>
 <body>

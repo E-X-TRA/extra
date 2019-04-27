@@ -4,6 +4,8 @@
 	<title>Buat Pertemuan</title>
 </head>
 
+<link rel="icon" href="{{ asset('img/logo.png') }}" >
+
 {{-- css --}}
 <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css')}}">
 <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css')}}">

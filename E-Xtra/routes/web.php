@@ -34,6 +34,7 @@ Route::post('/absensi/mengabsen/', 'AbsensiController@storeAbsen');
 Route::get('/uangKas','KasController@index');
 Route::get('/uangKas/catat','KasController@create');
 Route::post('/uangKas','KasController@store');
+Route::delete('/uangKas/catat/{id}','KasController@destroy');
 
 Auth::routes();
 

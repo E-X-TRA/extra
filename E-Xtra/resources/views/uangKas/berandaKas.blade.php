@@ -3,6 +3,9 @@
 <head>
 	<title>Tabel Kas</title>
 </head>
+
+<link rel="icon" href="{{ asset('img/logo.png') }}" >
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css')}}">
 <body>
 @if(session('success'))
@@ -33,7 +36,7 @@
 		<td>{{ $data->tanggal }}</td>
 		<td>{{ $data->jumlah_masuk }}</td>
 		<td>
-			<form action="{{ url('/uangKas/catatKas/' . $data->id) }}" method="POST">
+			<form action="{{ url('/uangKas/catat/' . $data->id) }}" method="POST">
 				@method('DELETE')
 				@csrf
 				<button type="submit" class="btn btn-danger">Delete</button>

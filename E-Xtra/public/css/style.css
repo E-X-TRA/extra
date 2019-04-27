@@ -5,8 +5,8 @@
 }
 .image {
   display: block;
-  width: 25%;
-  height: auto;
+  width: 10px;
+  height: 10px;
   margin: auto;
 }
 .overlay {
