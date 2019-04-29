@@ -121,7 +121,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid " style="height: 20em; background-color: black ;color:white; margin-top: ;">
+    <div class="container-fluid " style="height: 20em; background-color: black ;color:white; margin-top: 1px ;">
         <div class="row">
             <div class="col text-center">
                 <h4>Dibuat Oleh Siswa SMKN 4 Bandung</h4>
