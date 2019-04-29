@@ -6,15 +6,11 @@
 
 <link rel="icon" href="{{ asset('img/logo.png') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.0.min.js"></script>
 <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
-<style>
-	body{
-		background-color: #006494;
-	}
-</style>
 
 <body>
 	@if(session('success'))
@@ -34,17 +30,24 @@
 
 	$today = Carbon::today();
 	@endphp
-	<h1 class="text-center">DAFTAR ANGGOTA</h1>
-	 @auth {{-- kalo belom login gabakal muncul --}}
+
 <div class="container-fluid">
+@extends('layouts.app')
+@section('content')
+
+<h1 class="text-center" style="color: white;">DAFTAR ANGGOTA</h1>
+	 @auth {{-- kalo belom login gabakal muncul --}}
+
 	<div class="row">
+		<div class="col"></div>
 		<div class="col">
 			 <p class="float-left" style="font-size: 20px;">Hari ini, {{ $today->toDateString() }}</p>
         </div>
         <div class="col"></div>
         <div class="col">
             <a href="{{ url('/anggota/tambah') }}" class="btn btn-primary mb-2 float-right">Tambah</a>
-        </div>
+		</div>
+		<div class="col"></div>
 	</div>
 </div>
 	@endauth
@@ -52,7 +55,7 @@
 		<div class="row">
 			<div class="col"></div>
 			<div class="col-12">
-				<table id="tabelAnggota" class="table table-dark table-striped">
+				<table id="tabelAnggota" class="table table-dark table-striped rounded">
 					<thead>
 						<tr>
 						<th>Nama</th>
@@ -89,5 +92,6 @@
 			<div class="col"></div>
 		</div>
 	</div>
+	@endsection
 </body>
 </html>
