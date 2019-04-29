@@ -37,5 +37,3 @@ Route::post('/uangKas','KasController@store');
 Route::delete('/uangKas/catat/{id}','KasController@destroy');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
