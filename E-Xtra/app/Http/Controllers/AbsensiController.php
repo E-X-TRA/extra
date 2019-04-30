@@ -18,11 +18,13 @@ class AbsensiController extends Controller
     }
     
     public function index(){
-        return view('absensi.berandaAbsensi'); 
+        $data['anggota'] = \App\Anggota::get();
+        $data['pertemuan'] = \App\Pertemuan::get();
+        return view('absensi.berandaAbsensi',$data); 
     }
 
 	public function indexRekapan($id){
-        $idPertemuan = \DB::table('t_pertemuan')->where('id',$id)->value('id');
+        $idPertemuan = \App\Pertemuan::where('id',$id)->value('id');
 		$data['kehadiran'] = \DB::table('t_kehadiran')
         ->join('t_anggota','t_kehadiran.id_anggota','=','t_anggota.id')
         ->join('t_pertemuan','t_kehadiran.id_pertemuan','=','t_pertemuan.id')
