@@ -9,12 +9,15 @@
 {{-- css --}}
 <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css')}}">
 <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css')}}">
+@extends('layouts.app')
+
 
 <body style="background-color: #042a2b">
-<div class="container">
+    <div class="container">
+        @section('content')
 	<div class="row">
 		<div class="col"></div>
-        <div class="col-8" style="margin-top: 100px;">
+        <div class="col-8 mt-5" >
             @php
 		        use Carbon\Carbon;
 
@@ -42,7 +45,7 @@
         <div class="col"></div>
 	</div>
 </div>
-
+@endsection
 {{-- JavaScript --}}
 <script src="{{ asset('/js/jquery.slim.min.js') }}"></script>
 <script src="{{ asset('/js/popper.min.js') }}"></script>
