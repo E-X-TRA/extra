@@ -38,7 +38,7 @@
         ];
         $weekday = $daysIndo[$today->dayOfWeek];
     @endphp
-<body  style="background-color: #006494;">
+<body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; ">
             <div class="container">

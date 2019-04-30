@@ -13,7 +13,11 @@
 </head>
 
 <body class="bg-grd" style="background-color: #042a2b">
-    @if(session('success'))
+
+    @extends('layouts.app')
+    <div class="container">
+        @section('content')
+        @if(session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
@@ -23,9 +27,6 @@
         {{ session('error') }}
     </div>
     @endif
-    @extends('layouts.app')
-    <div class="container">
-        @section('content')
         <div class="row">
             <div class="col"></div>
             <div class="col-8">
@@ -38,8 +39,8 @@
             <div class="col"></div>
         </div>
     </div>
-    <div class="container bg-white" style="height: 250px; border-radius: 5px;">
-            <h1 class="text-center" style="padding: 10px;">STATISTIK</h1>
+    <div class="container bg-white" style="height: 220px; border-radius: 5px;">
+            <h1 class="text-center" style="padding: 5px;">STATISTIK</h1>
         <div class="row">
             <div class="col">
                 <div class="card">
@@ -50,7 +51,6 @@
                         </blockquote>
                     </div>
                 </div>
-            
             </div>
             <div class="col-2">
             </div>
