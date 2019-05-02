@@ -19,7 +19,13 @@
     }
     .table-wrapper-scroll-y {
     display: block;
-    }
+	}
+	.stuff{
+	background-color: white;
+	}
+	.hor{
+		margin-top: 10px;
+	}
 </style>
 
 <body   style="background-color: #006494;">
@@ -49,18 +55,20 @@
 <h1 class="text-center" style="color: white;">DAFTAR ANGGOTA</h1>
 	 @auth {{-- kalo belom login gabakal muncul --}}
 
-	<div class="row">
-		<div class="col"></div>
-		<div class="col">
-			 <p class="float-left" style="font-size: 20px;">Hari ini, {{ $today->toDateString() }}</p>
-        </div>
-        <div class="col"></div>
-        <div class="col">
-            <a href="{{ url('/anggota/tambah') }}" class="btn btn-primary mb-2 float-right">Tambah</a>
+	<div class="container">
+		<div class="row stuff rounded">
+			<div class="col"></div>
+			<div class="col hor">
+				<p class="float-left" style="font-size: 20px;">Hari ini, {{ $today->toDateString() }}</p>
+			</div>
+			<div class="col"></div>
+			<div class="col hor">
+				<a href="{{ url('/anggota/tambah') }}" class="btn btn-primary mb-2 float-right">Tambah</a>
+			</div>
+				<div class="col"></div>
+			</div>
 		</div>
-		<div class="col"></div>
 	</div>
-</div>
 	@endauth
 	<div class="container">
 		<div class="row">
