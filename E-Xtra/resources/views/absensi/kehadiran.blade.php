@@ -8,14 +8,23 @@
 <style>
 	.stuff{
 	background-color: white;
+
 }
+    .my-custom-scrollbar {
+    position: relative;
+    height: 475px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+	}
 </style>
 <body style="background-color: #006494; overflow-x: hidden;">
 @extends('layouts.app')
-@section('content')
 
 <div class="container">
-	<div class="row">
+    @section('content')
+    <div class="row">
 		<div class="col"></div>
 		<div class="col-10">
 			<div class="col stuff rounded">
@@ -36,28 +45,30 @@
 				$today = Carbon::today();
 				?>
 				Hari ini, {{ $today->toDateString() }}
-			</div>
-			<table id="tabelKehadiran" class="table table-dark table-striped rounded">
-				<thead>
-					<tr>
-						<th>Nama</th>
-						<th>Kehadiran</th>
-						<th>Tanggal</th>
-					</tr>
-				</thead>
-				<tbody>
-					@foreach ($kehadiran as $data)
-					<tr>
-						<td>{{ $data->nama }}</td>
-						<td>{{ $data->kehadiran }}</td>
-						<td>{{ $data->tanggal }}</td>
-					</tr>
-					@endforeach
-				</tbody>
-			</table>
+            </div>
+            <div class="my-custom-scrollbar table-wrapper-scroll-y">
+                <table id="tabelKehadiran" class="table table-dark table-striped rounded">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Kehadiran</th>
+                            <th>Tanggal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($kehadiran as $data)
+                        <tr>
+                            <td>{{ $data->nama }}</td>
+                            <td>{{ $data->kehadiran }}</td>
+                            <td>{{ $data->tanggal }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
 		</div>
 		<div class="col"></div>
-		
+
 	</div>
 </div>
 @endsection
