@@ -16,7 +16,7 @@
 		<div class="card">
 			<img class="card-img-top" src="holder.js/100x180/" alt="">
 			<div class="card-body">
-				<h4 class="card-title text-center">Jumlah Pertemuan : 0</h4>
+				<h4 class="card-title text-center">Jumlah Pertemuan : {{ $pertemuan->COUNT('id') }}</h4>
 			</div>
 		</div>
 	</div>

@@ -5,7 +5,7 @@
 </head>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 <link rel="icon" href="{{ asset('img/logo.png') }}" >
-<body>
+<body style="background-color: #006494;">
 
 @extends('layouts.app')
 @section('content')
