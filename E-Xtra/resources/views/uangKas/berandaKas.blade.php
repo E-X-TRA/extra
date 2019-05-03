@@ -87,7 +87,7 @@
                                         <tr>
                                             <td scope="row">{{ isset($i) ? ++$i : $i = 1 }}</td>
                                             <td>{{ $data->tanggal }}</td>
-                                            <td>{{ $data->jumlah_masuk }}</td>
+                                            <td>Rp. {{ $data->jumlah_masuk }}</td>
                                             <td>
                                                <form action="{{ url('/uangKas/catat/' . $data->id) }}" method="POST">
                                                    @method('DELETE')
