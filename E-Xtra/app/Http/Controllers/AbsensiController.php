@@ -25,8 +25,7 @@ class AbsensiController extends Controller
 
 	public function indexRekapan($id){
         $idPertemuan = \App\Pertemuan::where('id',$id)->value('id');
-		$data['kehadiran'] = \DB::table('t_kehadiran')
-        ->join('t_anggota','t_kehadiran.id_anggota','=','t_anggota.id')
+		$data['kehadiran'] = \App\Kehadiran::join('t_anggota','t_kehadiran.id_anggota','=','t_anggota.id')
         ->join('t_pertemuan','t_kehadiran.id_pertemuan','=','t_pertemuan.id')
         ->where('id_pertemuan',$idPertemuan)
         ->get();
@@ -41,18 +40,15 @@ class AbsensiController extends Controller
 
     public function storeAbsen(Request $request){
     	$input = $request->all();
-        
 
     	$id = $request->input('id.*');
-        print_r($id);
-        print_r(sizeof($id));
     	$hadir = $request->input('kehadiran.*');
         $pertemuan = $request->input('id_pertemuan');
 
         unset($input['_token']);
         
         for ($i=0; $i < sizeof($id); $i++) { 
-            $status = \DB::table('t_kehadiran')->insert([
+            $status = \App\Kehadiran::insert([
             ['id' => NULL,'id_pertemuan' => $pertemuan,'id_anggota' => $id[$i],'kehadiran' => $hadir[$i]]
         ]);
         }

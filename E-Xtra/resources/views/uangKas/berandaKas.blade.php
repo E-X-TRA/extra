@@ -42,7 +42,7 @@
                   <div class="card-body">
                     <blockquote class="blockquote">
                       <p>Jumlah Uang Kas</p>
-                      <footer class="card-blockquote"><cite title="Source title">Rp.XXX</cite></footer>
+                      <footer class="card-blockquote"><cite title="Total Uang Kas">Rp. {{ $totalKas->SUM('jumlah_masuk') }}</cite></footer>
                     </blockquote>
                   </div>
                 </div>
@@ -51,8 +51,8 @@
                 <div class="card" style="background-color: #1e2749; color: seashell">
                   <div class="card-body">
                     <blockquote class="blockquote">
-                      <p>Target menabung eskul</p>
-                      <footer class="card-blockquote"><cite title="Source title">Rp.XXX</cite></footer>
+                      <p>Target Menabung Ekskul</p>
+                      <footer class="card-blockquote"><cite title="Target Menabung">Rp. XXX</cite></footer>
                     </blockquote>
                   </div>
                 </div>

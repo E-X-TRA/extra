@@ -12,10 +12,9 @@ class KasController extends Controller
     }
     
     public function index(){
-		$data['uangKas'] = \DB::table('t_kas')
-        ->join('t_pertemuan','t_kas.id_pertemuan','=','t_pertemuan.id')
-
+		$data['uangKas'] = \App\Pertemuan::join('t_kas','t_kas.id_pertemuan','=','t_pertemuan.id')
         ->get();
+        $data['totalKas'] = \App\Kas::get();
         
 		return view('uangKas.berandaKas',$data); 
 	}

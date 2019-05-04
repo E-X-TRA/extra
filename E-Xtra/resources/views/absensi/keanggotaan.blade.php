@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Absensi</title>
+	<title>Keanggotaan</title>
 </head>
 
 <link rel="icon" href="{{ asset('img/logo.png') }}" >
@@ -60,16 +60,8 @@
 
 	<div class="container">
 		<div class="row stuff rounded">
-			<div class="col"></div>
 			<div class="col hor">
-				<p class="float-left" style="font-size: 20px;">Hari ini, {{ $today->toDateString() }}</p>
-			</div>
-			<div class="col"></div>
-			<div class="col hor">
-				<a href="{{ url('/anggota/tambah') }}" class="btn btn-primary mb-2 float-right">Tambah</a>
-			</div>
-				<div class="col"></div>
-			</div>
+				<a href="{{ url('/anggota/tambah') }}" class="btn btn-primary mb-2">Tambah Anggota Baru</a>
 		</div>
 	</div>
 	@endauth

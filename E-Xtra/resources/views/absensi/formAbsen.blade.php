@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Absensi</title>
+    <title>Prosedur Mengabsen</title>
 
     <link rel="icon" href="{{ asset('img/logo.png') }}" >
 

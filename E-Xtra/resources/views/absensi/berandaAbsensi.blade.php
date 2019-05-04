@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Absensi</title>
+    <title>Beranda Absensi</title>
     <link rel="icon" href="{{ asset('img/logo.png') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

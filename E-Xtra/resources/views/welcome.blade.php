@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>E-Xtra</title>
+        <title>E-Xtra | Manajemen Ekskul</title>
 
         <link rel="icon" href="{{ asset('img/logo.png') }}" >
 
@@ -57,15 +57,17 @@
             <div class="row">
                 <div class="col"></div>
                 <div class="col-6">
-                    <div class="text-center">
-                        <h1 class="timmana">E-[X]tra</h1>
-                        @guest
+                    <div class="text-center" style="cursor: default">
+                        <h1 class="timmana pb-1">E-[X]tra</h1>
+                    </div>
+                    <div class="col-xl">
+                         @guest
                                 <a class="btn btn-lg btn-primary float-left" href="{{ route('login') }}">{{ __('Login') }}</a>
                             @if (Route::has('register'))
                                     <a class="btn btn-lg btn-primary float-right" href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
-                        @else
-                                    <a class="btn btn-lg btn-primary" href="{{ route('logout') }}"
+                            @else
+                                    <a class="ml-5 btn btn-lg btn-primary" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -81,7 +83,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <h4 class="text-capitalize fugaz text-center" style="color: white; margin-top: 50px;">"dimana kami membuat semua hal lebih mudah"</h4>
+                <h4 class="text-capitalize fugaz text-center" style="color: white; margin-top: 50px;">"Manajemen Ekskul Menjadi Mudah"</h4>
             </div>
         </div>
     </div>
@@ -134,18 +136,19 @@
         </div>
         <div class="row" style="margin-top: 20px">
             <div class="col">
-                <h4 class="text-center">powered by</h4>
+                <h4 class="text-center">Supported By</h4>
                 <img src="{{ asset('img/smkn4-2.png') }}" alt="Logo Smkn 4" width="200px;" class="mx-auto d-block " style="margin-top: 20px">
             </div>
-            <div class="col-2" style="margin-top: 100px; margin-left: 200px;margin-right: 200px;">
-                <h6>Copyright 2019 @ E-[X]tra </h6>
-            </div>
-            <div class="col" style="">
-                <h4>About us</h4>
+            <div class="col-5" style="margin-left: 200px;margin-right: 200px;">
+                <h3>About Us</h3><br>
                 <p>Alvaro Dwi - Back End</p>
                 <p>M Haikal - Front End</p>
                 <p>Raihan Putra - Front End</p>
-                <p>Telp/Fax : (022) - 7303736</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <h6>Copyright 2019 @ E-[X]tra </h6>
             </div>
         </div>
     </div>

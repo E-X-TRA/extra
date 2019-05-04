@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Rekapan Pertemuan</title>
 </head>
 <link rel="icon" href="{{ asset('img/logo.png') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">

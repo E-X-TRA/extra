@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Form Input Anggota</title>
+	<title>Form Anggota</title>
 </head>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 <link rel="icon" href="{{ asset('img/logo.png') }}" >
@@ -25,7 +25,47 @@
 	</ul>
 </div>
 @endif
+@php
+function after ($ini, $inthat)
+    {
+        if (!is_bool(strpos($inthat, $ini)))
+        return substr($inthat, strpos($inthat,$ini)+strlen($ini));
+    };
 
+    function after_last ($ini, $target)
+    {
+        if (!is_bool(strrevpos($target, $ini)))
+        return substr($target, strrevpos($target, $ini)+strlen($ini));
+    };
+
+    function before ($ini, $target)
+    {
+        return substr($target, 0, strpos($target, $ini));
+    };
+
+    function before_last ($ini, $target)
+    {
+        return substr($target, 0, strrevpos($target, $ini));
+    };
+
+    function between ($ini, $itu, $target)
+    {
+        return before ($itu, after($ini, $target));
+    };
+
+    function between_last ($ini, $itu, $target)
+    {
+     return after_last($ini, before_last($itu, $target));
+    };
+
+// use strrevpos function in case your php version does not include it
+function strrevpos($instr, $needle)
+{
+    $rev_pos = strpos (strrev($instr), strrev($needle));
+    if ($rev_pos===false) return false;
+    else return strlen($instr) - $rev_pos - strlen($needle);
+};
+@endphp
 <div class="container">
         @section('content')
 	<div class="row">
@@ -34,7 +74,7 @@
             <div class="card text-left">
               <div class="card-body">
                 <h4 class="card-title"><h1>Form Anggota Ekskul</h1></h4>
-                <form action="{{ url('anggota', @$anggota->id) }}" method="POST">
+                <form action="{{ url('anggota', @$anggota->id) }}" method="POST" oninput="kelas.value = Tingkat.value + '-' + Jurusan.value + ' ' + Nomor_Kelas.value">
                         @csrf
                         @if(!empty($anggota))
                             @method('PATCH')
@@ -56,8 +96,23 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="kelas">Kelas</label>
-                                <input type="text" name="kelas" id="kelas" class="form-control" value="{{ old('kelas', @$anggota->kelas) }}" />
+                                <label for="kelas">Kelas</label><br>
+                                {{-- <input type="text" name="kelas" id="kelas" class="form-control" value="{{ old('kelas', @$anggota->kelas) }}" /> --}}
+                                <select name="Tingkat">
+                                    <option value="X" {{ before('-',old('kelas', @$anggota->kelas))=='X' ? 'selected' : '' }}>X</option>
+                                    <option value="XI" {{ before('-',old('kelas', @$anggota->kelas))=='XI' ? 'selected' : '' }}>XI</option>
+                                    <option value="XII" {{ before('-',old('kelas', @$anggota->kelas))=='XII' ? 'selected' : '' }}>XII</option>
+                                </select>
+                                <select name="Jurusan">
+                                    <option value="AV" {{ between('-',' ',old('kelas', @$anggota->kelas))=='AV' ? 'selected' : '' }}>AV</option>
+                                    <option value="MM" {{ between('-',' ',old('kelas', @$anggota->kelas))=='MM' ? 'selected' : '' }}>MM</option>
+                                    <option value="RPL" {{ between('-',' ',old('kelas', @$anggota->kelas))=='RPL' ? 'selected' : '' }}>RPL</option>
+                                    <option value="TITL" {{ between('-',' ',old('kelas', @$anggota->kelas))=='TITL' ? 'selected' : '' }}>TITL</option>
+                                    <option value="TKJ" {{ between('-',' ',old('kelas', @$anggota->kelas))=='TKJ' ? 'selected' : '' }}>TKJ</option>
+                                    <option value="TOI" {{ between('-',' ',old('kelas', @$anggota->kelas))=='TOI' ? 'selected' : '' }}>TOI</option>
+                                </select>
+                                <input type="text" name="Nomor_Kelas" size="1" value="{{ after(' ',old('kelas', @$anggota->kelas))}}">
+                                <input type="hidden" name="kelas"></output>
                             </div>
                         </div>
                     <input class="btn btn-success p-2" type="submit" value="Simpan"/>

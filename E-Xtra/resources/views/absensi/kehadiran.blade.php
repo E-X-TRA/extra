@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tabel Kehadiran</title>
+	<title>Detail Pertemuan</title>
 </head>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 <link rel="icon" href="{{ asset('img/logo.png') }}" >
@@ -28,23 +28,7 @@
 		<div class="col"></div>
 		<div class="col-10">
 			<div class="col stuff rounded">
-				@if(session('success'))
-				<div class="alert alert-success">
-					{{ session('success') }}
-				</div>
-				@endif
-
-				@if(session('error'))
-				<div class="alert alert-error">
-					{{ session('error') }}
-				</div>
-				@endif
-				<?php
-				use Carbon\Carbon;
-
-				$today = Carbon::today();
-				?>
-				Hari ini, {{ $today->toDateString() }}
+				<h4 class="py-4">Rekapan Pertemuan</h4>
             </div>
             <div class="my-custom-scrollbar table-wrapper-scroll-y">
                 <table id="tabelKehadiran" class="table table-dark table-striped rounded">
