@@ -62,9 +62,14 @@
 		<div class="row stuff rounded">
 			<div class="col hor">
 				<a href="{{ url('/anggota/tambah') }}" class="btn btn-primary mb-2">Tambah Anggota Baru</a>
+				Jumlah Laki-Laki :
+				{{ $anggota->where('jenis_kelamin','L')->COUNT('jenis_kelamin') }}
+				Jumlah Perempuan :
+				{{ $anggota->where('jenis_kelamin','P')->COUNT('jenis_kelamin') }}
 		</div>
 	</div>
 	@endauth
+
 	<div class="container">
 		<div class="row">
 			<div class="col"></div>
