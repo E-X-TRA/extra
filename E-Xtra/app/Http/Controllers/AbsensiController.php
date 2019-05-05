@@ -39,6 +39,14 @@ class AbsensiController extends Controller
     }
 
     public function storeAbsen(Request $request){
+        $rule = [
+            'id_pertemuan' => 'required',
+            'id' => 'required',
+            'tanggal' => 'required',
+            'kehadiran' => 'required',
+        ];
+        $this->validate($request,$rule);
+
     	$input = $request->all();
 
     	$id = $request->input('id.*');
@@ -52,8 +60,6 @@ class AbsensiController extends Controller
             ['id' => NULL,'id_pertemuan' => $pertemuan,'id_anggota' => $id[$i],'kehadiran' => $hadir[$i]]
         ]);
         }
-    	
-        // $status = \DB::table('t_kehadiran')->insert($data);
 
     	if ($status) {
     		return redirect('/absensi')->with('success','Data Berhasil Ditambahkan');
