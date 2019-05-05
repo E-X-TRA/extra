@@ -40,7 +40,7 @@ class AnggotaController extends Controller
     	$data['anggota'] = \App\Anggota::find($id);
     	return view('absensi.formAnggota',$data);
     }
-    
+
     public function update(Request $request, $id){
     	$rule = [
     		'nama' => 'required|string',
@@ -59,7 +59,7 @@ class AnggotaController extends Controller
     		return redirect('/anggota/ubah')->with('error','Data Gagal Diubah');
     	}
     }
-    
+
     public function destroy(Request $request, $id){
         $anggota = \App\Anggota::find($id);
     	$status = $anggota->delete();
