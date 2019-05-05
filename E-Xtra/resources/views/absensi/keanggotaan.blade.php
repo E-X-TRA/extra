@@ -14,7 +14,7 @@
 <style>
     .my-custom-scrollbar {
     position: relative;
-    height: 350px;
+    height: 325px;
     overflow: auto;
     }
     .table-wrapper-scroll-y {
@@ -74,8 +74,8 @@
 		<div class="row">
 			<div class="col"></div>
 			<div class="col-12">
-                <div class="my-custom-scrollbar table-wrapper-scroll-y">
-                    <table id="tabelAnggota" class="table table-dark table-striped rounded">
+                <div class="my-custom-scrollbar table-wrapper-scroll-y mt-3">
+                    <table id="tabelAnggota" class="table table-dark table-striped rounded ">
                         <thead>
                             <tr>
                             <th>Nama</th>

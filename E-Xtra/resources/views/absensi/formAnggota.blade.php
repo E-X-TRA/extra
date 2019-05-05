@@ -9,22 +9,7 @@
 
 @extends('layouts.app')
 
-@if(session('error'))
-<div class="alert alert-error">
-    {{ session('error') }}
-</div>
-@endif
 
-@if(count($errors) > 0)
-<div class="alert alert-danger">
-    <strong>PERHATIAN</strong><br>
-	<ul>
-        @foreach ($errors->all() as $error)
-		<li>{{ $error }}</li>
-		@endforeach
-	</ul>
-</div>
-@endif
 @php
 function after ($ini, $inthat)
     {
@@ -68,9 +53,25 @@ function strrevpos($instr, $needle)
 @endphp
 <div class="container">
         @section('content')
+        @if(session('error'))
+<div class="alert alert-error">
+    {{ session('error') }}
+</div>
+@endif
+
+@if(count($errors) > 0)
+<div class="alert alert-danger">
+    <strong>PERHATIAN</strong><br>
+	<ul>
+        @foreach ($errors->all() as $error)
+		<li>{{ $error }}</li>
+		@endforeach
+	</ul>
+</div>
+@endif
 	<div class="row">
 		<div class="col"></div>
-        <div class="col-6 my-5">
+        <div class="col-6 ">
             <div class="card text-left">
               <div class="card-body">
                 <h4 class="card-title"><h1>Form Anggota Ekskul</h1></h4>
@@ -95,24 +96,32 @@ function strrevpos($instr, $needle)
                                     <label for="jenkelP" class="custom-control-label">P</label>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="kelas">Kelas</label><br>
-                                {{-- <input type="text" name="kelas" id="kelas" class="form-control" value="{{ old('kelas', @$anggota->kelas) }}" /> --}}
-                                <select name="Tingkat">
-                                    <option value="X" {{ before('-',old('kelas', @$anggota->kelas))=='X' ? 'selected' : '' }}>X</option>
-                                    <option value="XI" {{ before('-',old('kelas', @$anggota->kelas))=='XI' ? 'selected' : '' }}>XI</option>
-                                    <option value="XII" {{ before('-',old('kelas', @$anggota->kelas))=='XII' ? 'selected' : '' }}>XII</option>
-                                </select>
-                                <select name="Jurusan">
-                                    <option value="AV" {{ between('-',' ',old('kelas', @$anggota->kelas))=='AV' ? 'selected' : '' }}>AV</option>
-                                    <option value="MM" {{ between('-',' ',old('kelas', @$anggota->kelas))=='MM' ? 'selected' : '' }}>MM</option>
-                                    <option value="RPL" {{ between('-',' ',old('kelas', @$anggota->kelas))=='RPL' ? 'selected' : '' }}>RPL</option>
-                                    <option value="TITL" {{ between('-',' ',old('kelas', @$anggota->kelas))=='TITL' ? 'selected' : '' }}>TITL</option>
-                                    <option value="TKJ" {{ between('-',' ',old('kelas', @$anggota->kelas))=='TKJ' ? 'selected' : '' }}>TKJ</option>
-                                    <option value="TOI" {{ between('-',' ',old('kelas', @$anggota->kelas))=='TOI' ? 'selected' : '' }}>TOI</option>
-                                </select>
-                                <input type="text" name="Nomor_Kelas" size="1" value="{{ after(' ',old('kelas', @$anggota->kelas))}}">
-                                <input type="hidden" name="kelas"></output>
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label for="kelas">Kelas</label><br>
+                                    {{-- <input type="text" name="kelas" id="kelas" class="form-control" value="{{ old('kelas', @$anggota->kelas) }}" /> --}}
+                                    <select name="Tingkat"  class="form-control " id="kelas">
+                                        <option value="X" {{ before('-',old('kelas', @$anggota->kelas))=='X' ? 'selected' : '' }}>X</option>
+                                        <option value="XI" {{ before('-',old('kelas', @$anggota->kelas))=='XI' ? 'selected' : '' }}>XI</option>
+                                        <option value="XII" {{ before('-',old('kelas', @$anggota->kelas))=='XII' ? 'selected' : '' }}>XII</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col">
+                                    <label for="jurusan">Jurusan</label>
+                                            <select name="Jurusan" class="form-control" id="jurusan">
+                                                <option value="AV" {{ between('-',' ',old('kelas', @$anggota->kelas))=='AV' ? 'selected' : '' }}>AV</option>
+                                                <option value="MM" {{ between('-',' ',old('kelas', @$anggota->kelas))=='MM' ? 'selected' : '' }}>MM</option>
+                                                <option value="RPL" {{ between('-',' ',old('kelas', @$anggota->kelas))=='RPL' ? 'selected' : '' }}>RPL</option>
+                                                <option value="TITL" {{ between('-',' ',old('kelas', @$anggota->kelas))=='TITL' ? 'selected' : '' }}>TITL</option>
+                                                <option value="TKJ" {{ between('-',' ',old('kelas', @$anggota->kelas))=='TKJ' ? 'selected' : '' }}>TKJ</option>
+                                                <option value="TOI" {{ between('-',' ',old('kelas', @$anggota->kelas))=='TOI' ? 'selected' : '' }}>TOI</option>
+                                            </select>
+                                </div>
+                                <div class="form-group col">
+                                    <label for="" style="opacity: 0">suwarko</label>
+                                    <input type="text"  class="form-control" name="Nomor_Kelas" size="1" value="{{ after(' ',old('kelas', @$anggota->kelas))}}">
+                                    <input type="hidden" name="kelas"></output>
+                                </div>
                             </div>
                         </div>
                     <input class="btn btn-success p-2" type="submit" value="Simpan"/>

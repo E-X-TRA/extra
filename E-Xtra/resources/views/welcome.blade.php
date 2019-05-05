@@ -67,7 +67,7 @@
                                     <a class="btn btn-lg btn-primary float-right" href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
                             @else
-                                    <a class="ml-5 btn btn-lg btn-primary" href="{{ route('logout') }}"
+                                    <a class=" btn btn-lg btn-primary" href="{{ route('logout') }}" style="margin-left: 250px;"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -88,7 +88,7 @@
         </div>
     </div>
      <div class="container-fluid">
-        <div class="row" style="margin-top: 120px; margin-bottom: 11em;">
+        <div class="row" style="margin-top: 120px; margin-bottom: 8em;">
             <div class="col">
             <a href="{{ url('absensi') }}" style="color: white;">
                     <div class="container-gmb hover-blur">
@@ -101,7 +101,6 @@
                     </div>
             </div>
             </a>
-
             <div class="col">
                 <a href="{{ url('anggota') }}" style="color: white;">
                     <div class="container-gmb hover-blur">
@@ -128,7 +127,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid " style="height: 20em; background-color: black ;color:white; margin-top: 1px ;">
+    <div class="container-fluid " style="height: 22em; background-color: black ;color:white;">
         <div class="row">
             <div class="col text-center">
                 <h4>Dibuat Oleh Siswa SMKN 4 Bandung</h4>
@@ -139,15 +138,19 @@
                 <h4 class="text-center">Supported By</h4>
                 <img src="{{ asset('img/smkn4-2.png') }}" alt="Logo Smkn 4" width="200px;" class="mx-auto d-block " style="margin-top: 20px">
             </div>
-            <div class="col-5" style="margin-left: 200px;margin-right: 200px;">
+            <div class="col text-center" style="margin-left: 100px;margin-right:100px;">
                 <h3>About Us</h3><br>
                 <p>Alvaro Dwi - Back End</p>
                 <p>M Haikal - Front End</p>
                 <p>Raihan Putra - Front End</p>
             </div>
+            <div class="col">
+                <h4 class="text-center">Powered by</h4>
+                <img src="{{ asset('img/logo-rpl1(2).png') }}" alt="Logo Smkn 4" width="350px;" class="" style="margin-top: 55px;">
+            </div>
         </div>
         <div class="row">
-            <div class="col text-center">
+            <div class="col text-center ">
                 <h6>Copyright 2019 @ E-[X]tra </h6>
             </div>
         </div>
