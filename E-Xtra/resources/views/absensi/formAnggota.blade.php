@@ -8,48 +8,46 @@
 <body style="background-color: #006494">
 
 @extends('layouts.app')
-
-
 @php
-function after ($ini, $inthat)
-    {
-        if (!is_bool(strpos($inthat, $ini)))
-        return substr($inthat, strpos($inthat,$ini)+strlen($ini));
-    };
+    function after ($ini, $inthat)
+        {
+            if (!is_bool(strpos($inthat, $ini)))
+            return substr($inthat, strpos($inthat,$ini)+strlen($ini));
+        };
 
-    function after_last ($ini, $target)
-    {
-        if (!is_bool(strrevpos($target, $ini)))
-        return substr($target, strrevpos($target, $ini)+strlen($ini));
-    };
+        function after_last ($ini, $target)
+        {
+            if (!is_bool(strrevpos($target, $ini)))
+            return substr($target, strrevpos($target, $ini)+strlen($ini));
+        };
 
-    function before ($ini, $target)
-    {
-        return substr($target, 0, strpos($target, $ini));
-    };
+        function before ($ini, $target)
+        {
+            return substr($target, 0, strpos($target, $ini));
+        };
 
-    function before_last ($ini, $target)
-    {
-        return substr($target, 0, strrevpos($target, $ini));
-    };
+        function before_last ($ini, $target)
+        {
+            return substr($target, 0, strrevpos($target, $ini));
+        };
 
-    function between ($ini, $itu, $target)
-    {
-        return before ($itu, after($ini, $target));
-    };
+        function between ($ini, $itu, $target)
+        {
+            return before ($itu, after($ini, $target));
+        };
 
-    function between_last ($ini, $itu, $target)
-    {
-     return after_last($ini, before_last($itu, $target));
-    };
+        function between_last ($ini, $itu, $target)
+        {
+         return after_last($ini, before_last($itu, $target));
+        };
 
-// use strrevpos function in case your php version does not include it
-function strrevpos($instr, $needle)
-{
-    $rev_pos = strpos (strrev($instr), strrev($needle));
-    if ($rev_pos===false) return false;
-    else return strlen($instr) - $rev_pos - strlen($needle);
-};
+    // use strrevpos function in case your php version does not include it
+    function strrevpos($instr, $needle)
+    {
+        $rev_pos = strpos (strrev($instr), strrev($needle));
+        if ($rev_pos===false) return false;
+        else return strlen($instr) - $rev_pos - strlen($needle);
+    };
 @endphp
 <div class="container">
         @section('content')
@@ -75,7 +73,7 @@ function strrevpos($instr, $needle)
             <div class="card text-left">
               <div class="card-body">
                 <h4 class="card-title"><h1>Form Anggota Ekskul</h1></h4>
-                <form action="{{ url('anggota', @$anggota->id) }}" method="POST" oninput="kelas.value = Tingkat.value + '-' + Jurusan.value + ' ' + Nomor_Kelas.value">
+                <form action="{{ url('anggota', @$anggota->id) }}" method="POST" onsubmit="kelas.value = Tingkat.value + '-' + Jurusan.value + ' ' + Nomor_Kelas.value">
                         @csrf
                         @if(!empty($anggota))
                             @method('PATCH')
@@ -98,9 +96,9 @@ function strrevpos($instr, $needle)
                             </div>
                             <div class="form-row">
                                 <div class="form-group col">
-                                    <label for="kelas">Kelas</label><br>
+                                    <label for="tingkat">Kelas</label><br>
                                     {{-- <input type="text" name="kelas" id="kelas" class="form-control" value="{{ old('kelas', @$anggota->kelas) }}" /> --}}
-                                    <select name="Tingkat"  class="form-control " id="kelas">
+                                    <select name="Tingkat"  class="form-control" id="tingkat">
                                         <option value="X" {{ before('-',old('kelas', @$anggota->kelas))=='X' ? 'selected' : '' }}>X</option>
                                         <option value="XI" {{ before('-',old('kelas', @$anggota->kelas))=='XI' ? 'selected' : '' }}>XI</option>
                                         <option value="XII" {{ before('-',old('kelas', @$anggota->kelas))=='XII' ? 'selected' : '' }}>XII</option>
@@ -118,11 +116,11 @@ function strrevpos($instr, $needle)
                                             </select>
                                 </div>
                                 <div class="form-group col">
-                                    <label for="" style="opacity: 0">suwarko</label>
-                                    <input type="text"  class="form-control" name="Nomor_Kelas" size="1" value="{{ after(' ',old('kelas', @$anggota->kelas))}}">
-                                    <input type="hidden" name="kelas"></output>
+                                    <label for="Nomor_Kelas">Nomor Kelas</label>
+                                    <input type="text" class="form-control" name="Nomor_Kelas" size="1" value="{{ after(' ',old('kelas', @$anggota->kelas))}}">
                                 </div>
                             </div>
+                        <input type="hidden" name="kelas" value=""></input>
                         </div>
                     <input class="btn btn-success p-2" type="submit" value="Simpan"/>
                 </form>
