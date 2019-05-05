@@ -59,14 +59,27 @@
 	 @auth {{-- kalo belom login gabakal muncul --}}
 
 	<div class="container">
-		<div class="row stuff rounded">
-			<div class="col hor">
-				<a href="{{ url('/anggota/tambah') }}" class="btn btn-primary mb-2">Tambah Anggota Baru</a>
-				Jumlah Laki-Laki :
-				{{ $anggota->where('jenis_kelamin','L')->COUNT('jenis_kelamin') }}
-				Jumlah Perempuan :
-				{{ $anggota->where('jenis_kelamin','P')->COUNT('jenis_kelamin') }}
-		</div>
+		<div class="row rounded bg-light" >
+			<div class="col">
+				<a href="{{ url('/anggota/tambah') }}" class="btn btn-primary mt-3">Tambah Anggota Baru</a>
+            </div>
+            <div class="col-6">
+            </div>
+            <div class="col">
+                <div class="d-inline-flex p-3">
+                    <div class="btn">
+                        Laki - Laki :
+                        {{ $anggota->where('jenis_kelamin','L')->COUNT('jenis_kelamin') }}
+                    </div>
+                    <div class="btn">
+                        |
+                    </div>
+                    <div class="btn">
+                     Perempuan :
+                        {{ $anggota->where('jenis_kelamin','P')->COUNT('jenis_kelamin') }}
+                    </div>
+                </div>
+        </div>
 	</div>
 	@endauth
 

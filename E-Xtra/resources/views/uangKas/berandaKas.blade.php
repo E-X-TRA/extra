@@ -20,6 +20,20 @@
 </style>
 <body style="background-color: #5eb1bf">
 
+    <!-- Modal -->
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="target"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     @extends('layouts.app')
     <div class="container">
@@ -38,10 +52,10 @@
 @endif
         <div class="row my-1">
             <div class="col">
-                <div class="card" style="background-color: #1e2749; color: ivory">
-                  <div class="card-body">
+                <div class="card" style="background-color: #1e2749; color: ivory;">
+                  <div class="card-body" style=" margin-bottom: 2px;">
                     <blockquote class="blockquote">
-                      <p>Jumlah Uang Kas</p>
+                      <p>Jumlah Uang Kas Eskul</p>
                       <footer class="card-blockquote"><cite title="Total Uang Kas">Rp. {{ $totalKas->SUM('jumlah_masuk') }}</cite></footer>
                     </blockquote>
                   </div>
@@ -52,7 +66,9 @@
                   <div class="card-body">
                     <blockquote class="blockquote">
                       <p>Target Menabung Ekskul</p>
-                      <footer class="card-blockquote"><cite title="Target Menabung">Rp. XXX</cite></footer>
+                      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modelId" onclick="targetKas()">
+                            Masukan Uang Kas Anda
+                          </button>
                     </blockquote>
                   </div>
                 </div>
@@ -108,6 +124,18 @@
 </body>
 
 <script>
+    function targetKas() {
+        var hasil = {{ $totalKas->SUM('jumlah_masuk') }};
+        var masuk = prompt("Masukan Jumlah Target Anda");
+        var kata
+        if (hasil>masuk){
+            kata = "Target Uang Kas Anda Tercapai";
+        }
+        else{
+            kata = "Target Uang Kas Anda Belum Tercapai";
+        }
+        document.getElementById("target").innerHTML=kata;
+    }
 	var e = document.getElementById("idPertemuan");
 	var idPertemuan = e.options[e.selectedIndex].value;
 </script>
