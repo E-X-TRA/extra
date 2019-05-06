@@ -38,16 +38,21 @@
     }
     .parallax{
         /* The image used */
-        background-image: url(img/logo.png);
+        background-image: url(img/Title.png);
         /* Set a specific height */
         min-height: 680px;
         /* Create the parallax scrolling effect */
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 250px;
+        background-size: 50%;
         background-color: #007bff;
 }
+    .title{
+        background-image: url(img/Title.png);
+        background-position: center;
+        background-size: 50%;
+    }
         </style>
     </head>
     <body>
