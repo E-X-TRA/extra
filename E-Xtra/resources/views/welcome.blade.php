@@ -26,7 +26,7 @@
     }
     .timmana {
         font-family: 'Timmana';
-        font-size: 175px;
+        font-size: 80px;
         margin-top: 100px;
         color: white;
     }
@@ -63,8 +63,7 @@
                 <div class="col"></div>
                 <div class="col-6">
                     <div class="text-center" style="cursor: default">
-                        <h1 class="timmana pb-1">E-[X]tra</h1>
-                    </div>
+                        <h4 class="text-capitalize timmana text-center" style="color: white; margin-top: 50px;">Manajemen Ekskul Menjadi Mudah</h4>                    </div>
                     <div class="col-xl">
                          @guest
                                 <a class="btn btn-lg btn-primary float-left" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -88,7 +87,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <h4 class="text-capitalize fugaz text-center" style="color: white; margin-top: 50px;">"Manajemen Ekskul Menjadi Mudah"</h4>
+                {{-- <h4 class="text-capitalize fugaz text-center" style="color: white; margin-top: 50px;">"Manajemen Ekskul Menjadi Mudah"</h4> --}}
             </div>
         </div>
     </div>

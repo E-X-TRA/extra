@@ -122,7 +122,8 @@
                             </div>
                         <input type="hidden" name="kelas" value=""></input>
                         </div>
-                    <input class="btn btn-success p-2" type="submit" value="Simpan"/>
+                    <input class="btn btn-success p-2" type="submit" value="SIMPAN"/>
+                    <a class="btn btn-warning" href="{{ url('/anggota') }}">BATAL</a>
                 </form>
                 </div>
             </div>

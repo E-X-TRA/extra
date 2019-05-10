@@ -5,7 +5,8 @@
 </head>
 <link rel="icon" href="{{ asset('img/logo.png') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <style>
     .my-custom-scrollbar {
     position: relative;
@@ -40,7 +41,7 @@
             </div>
 
 
-            <br>
+            <input type="text" name="search" id="search" class="form-control" placeholder="Search Nama Siswa" />
             <div class="container">
                 <div class="row">
                     <div class="col">
@@ -59,7 +60,7 @@
                                         <td>{{$data->tanggal}}</td>
                                         <td>{{$data->kegiatan}}</td>
                                         <td>
-                                            <a href="{{ url('/absensi/rekapan/pertemuan',$data->id) }}">DETAIL</a>
+                                            <a class="btn btn-secondary" href="{{ url('/absensi/rekapan/pertemuan',$data->id) }}">DETAIL</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -75,4 +76,30 @@
 
 </div>
 </body>
+<script>
+$(document).ready(function(){
+
+ fetch_customer_data();
+
+ function fetch_customer_data(query = '')
+ {
+  $.ajax({
+   url:"{{ route('pertemuan.search') }}",
+   method:'GET',
+   data:{query:query},
+   dataType:'json',
+   success:function(data)
+   {
+    $('tbody').html(data.table_data);
+    $('#total_records').text(data.total_data);
+   }
+  })
+ }
+
+ $(document).on('keyup', '#search', function(){
+  var query = $(this).val();
+  fetch_customer_data(query);
+ });
+});
+</script>
 </html>

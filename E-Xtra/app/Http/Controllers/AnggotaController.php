@@ -70,4 +70,65 @@ class AnggotaController extends Controller
     		return redirect('/anggota/ubah')->with('error','Data Gagal Dihapus');
     	}
     }
+
+    //livesearch
+    function liveSearch(Request $request)
+    {
+     if($request->ajax())
+     {
+      $output = '';
+      $query = $request->get('query');
+      if($query != '')
+      {
+       $data = \App\Anggota::where('nama', 'like', '%'.$query.'%')
+         ->orWhere('kelas', 'like', '%'.$query.'%')
+         ->orderBy('id', 'desc')
+         ->get();
+         
+      }
+      else
+      {
+       $data =\App\Anggota::orderBy('id', 'desc')
+         ->get();
+      }
+      $total_row = $data->count();
+      if($total_row > 0)
+      {
+       foreach($data as $row)
+       {
+        $output .= '
+        <tr>
+         <td>'.strtoupper($row->nama).'</td>
+         <td>'.$row->kelas.'</td>
+         <td>'.$row->jenis_kelamin.'</td>
+         <td class="px-0" align="center">
+                <a href="'.url('/anggota/'.$row->id.'/ubah').'" class="btn btn-primary">EDIT</a>
+        </td>
+        <td class="px-0" align="center">
+            <form action="'.url('/anggota/'. $row->id).'" method="POST">
+                '.csrf_field().'
+                '.method_field('DELETE').'
+                <button type="submit" class="btn btn-danger">HAPUS</button>
+            </form>
+        </td>
+        </tr>
+        ';
+       }
+      }
+      else
+      {
+       $output = '
+       <tr>
+        <td align="center" colspan="5">No Data Found</td>
+       </tr>
+       ';
+      }
+      $data = array(
+       'table_data'  => $output,
+       'total_data'  => $total_row
+      );
+
+      echo json_encode($data);
+     }
+    }
 }

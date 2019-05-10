@@ -24,12 +24,13 @@ class AbsensiController extends Controller
     }
 
 	public function indexRekapan($id){
-        $idPertemuan = \App\Pertemuan::where('id',$id)->value('id');
+        $data['idPertemuan'] = \App\Pertemuan::where('id',$id)->value('id');
+        $data['namaKegiatan'] = \App\Pertemuan::where('id',$id)->value('kegiatan');
 		$data['kehadiran'] = \App\Kehadiran::join('t_anggota','t_kehadiran.id_anggota','=','t_anggota.id')
         ->join('t_pertemuan','t_kehadiran.id_pertemuan','=','t_pertemuan.id')
-        ->where('id_pertemuan',$idPertemuan)
+        ->where('id_pertemuan',$id)
         ->get();
-		return view('absensi.kehadiran',$data); 
+		return view('absensi.kehadiran',$data);
 	}
         //untuk CRUD mengabsen
     public function indexAbsen(){
@@ -66,5 +67,69 @@ class AbsensiController extends Controller
     	}else{
     		return redirect('/absensi/mengabsen')->with('error','Data Gagal Ditambahkan');
     	}
+    } 
+
+    public function destroyRekap(Request $request,$id){
+        $absensi = \App\Pertemuan::find($id);
+        $status = $absensi->delete();
+
+        if ($status) {
+            return redirect('/absensi/rekapan/pertemuan')->with('success','Data Berhasil Dihapus');
+        }else{
+            return redirect('/absensi/rekapan/pertemuan')->with('error','Data Gagal Dihapus');
+        }
+    }
+
+    function liveSearch(Request $request,$id)
+    {
+     if($request->ajax())
+     {
+      $output = '';
+      $query = $request->get('query');
+      if($query != '')
+      {
+       $data = \App\Kehadiran::join('t_anggota','t_kehadiran.id_anggota','=','t_anggota.id')
+         ->join('t_pertemuan','t_kehadiran.id_pertemuan','=','t_pertemuan.id')
+         ->where('id_pertemuan',$id)
+         ->where('nama', 'like', '%'.$query.'%')
+         ->get();
+         
+      }
+      else
+      {
+       $data = \App\Kehadiran::join('t_anggota','t_kehadiran.id_anggota','=','t_anggota.id')
+        ->join('t_pertemuan','t_kehadiran.id_pertemuan','=','t_pertemuan.id')
+        ->where('id_pertemuan',$id)
+        ->get();
+      }
+      $total_row = $data->count();
+      if($total_row > 0)
+      {
+       foreach($data as $row)
+       {
+        $output .= '
+        <tr>
+            <td>'.$data->nama.'</td>
+            <td>'.strtoupper($data->kehadiran).'</td>
+            <td>'.$data->tanggal.'</td>
+        </tr>
+        ';
+       }
+      }
+      else
+      {
+       $output = '
+       <tr>
+        <td align="center" colspan="5">No Data Found</td>
+       </tr>
+       ';
+      }
+      $data = array(
+       'table_data'  => $output,
+       'total_data'  => $total_row
+      );
+
+      echo json_encode($data);
+     }
     }
 }

@@ -17,10 +17,12 @@ Route::get('/', function () {
 //untuk absen
 Route::get('/absensi','AbsensiController@index');
 Route::get('/absensi/rekapan', 'PertemuanController@index');
+Route::get('/absensi/rekapan/search','PertemuanController@liveSearch')->name('pertemuan.search');
 Route::get('/absensi/buatKumpul','PertemuanController@create');
 Route::post('/absensi','PertemuanController@store');
 //untuk anggota
 Route::get('/anggota', 'AnggotaController@index');
+Route::get('/anggota/search','AnggotaController@liveSearch')->name('anggota.search');
 Route::get('/anggota/tambah','AnggotaController@create');
 Route::post('/anggota','AnggotaController@store');
 Route::get('/anggota/{id}/ubah','AnggotaController@edit');
@@ -28,6 +30,8 @@ Route::patch('/anggota/{id}','AnggotaController@update');
 Route::delete('/anggota/{id}','AnggotaController@destroy');
 //untuk rekapan
 Route::get('/absensi/rekapan/pertemuan/{id}','AbsensiController@indexRekapan');
+Route::get('/absensi/rekapan/pertemuan/{id}/search','AbsensiController@liveSearch')->name('rekapan.search');
+Route::delete('/absensi/rekapan/pertemuan/{id}','AbsensiController@destroyRekap');
 Route::get('/absensi/mengabsen/', 'AbsensiController@indexAbsen');
 Route::post('/absensi/mengabsen/', 'AbsensiController@storeAbsen');
 //untuk uangkas
