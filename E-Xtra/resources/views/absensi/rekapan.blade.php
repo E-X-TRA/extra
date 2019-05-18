@@ -5,6 +5,7 @@
 </head>
 <link rel="icon" href="{{ asset('img/logo.png') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.0.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <style>
@@ -26,11 +27,11 @@
             </div>
 
             <div class="row">
-                <div class="col"></div>
-
+                <div class="col"><a class="btn btn-secondary" href="{{ url('/absensi') }}">MENUJU ABSENSI</a></div>
+                
                 <div class="col">
                     <div class="card">
-                        <img class="card-img-top" src="holder.js/100x180/" alt="">
+                        <img class="card-img-top">
                         <div class="card-body">
                             <h4 class="card-title text-center">Jumlah Pertemuan : {{ $pertemuan->COUNT('id') }}</h4>
                         </div>

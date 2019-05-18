@@ -7,7 +7,6 @@
 <link rel="icon" href="{{ asset('img/logo.png') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.0.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
@@ -64,7 +63,7 @@
 				<a href="{{ url('/anggota/tambah') }}" class="btn btn-primary mt-3">TAMBAH ANGGOTA BARU</a>
             </div>
             <div class="col-6">
-                <a class="btn btn-secondary" href="{{ url('') }}">MENUJU ABSENSI</a>
+                <a class="btn btn-secondary" href="{{ url('/absensi') }}">MENUJU ABSENSI</a>
             </div>
             <div class="col">
                 <div class="d-inline-flex p-3">

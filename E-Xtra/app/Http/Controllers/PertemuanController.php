@@ -38,8 +38,7 @@ class PertemuanController extends Controller
     	}
     }
 
-   function liveSearch(Request $request)
-    {
+   function liveSearch(Request $request){
      if($request->ajax())
      {
       $output = '';
@@ -47,14 +46,12 @@ class PertemuanController extends Controller
       if($query != '')
       {
        $data = \App\Pertemuan::where('kegiatan', 'like', '%'.$query.'%')
-         ->orderBy('id', 'desc')
-         ->get();
-         
+         ->orWhere('tanggal', 'like', '%'.$query.'%')
+         ->get(); 
       }
       else
       {
-       $data =\App\Pertemuan::orderBy('id', 'desc')
-         ->get();
+       $data = \App\Pertemuan::get();
       }
       $total_row = $data->count();
       if($total_row > 0)
@@ -63,11 +60,11 @@ class PertemuanController extends Controller
        {
         $output .= '
         <tr>
-            <td>'.$data->tanggal.'</td>
-            <td>'.$data->kegiatan.'</td>
-            <td>
-                <a class="btn btn-secondary" href="'.url('/absensi/rekapan/pertemuan',$data->id).'">DETAIL</a>
-            </td>
+        <td>'.$row->tanggal.'</td>
+        <td>'.$row->kegiatan.'</td>
+        <td>
+            <a class="btn btn-secondary" href="'.url('/absensi/rekapan/pertemuan',$row->id) .'">DETAIL</a>
+        </td>
         </tr>
         ';
        }

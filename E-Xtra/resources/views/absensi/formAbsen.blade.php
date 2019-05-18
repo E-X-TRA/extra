@@ -2,16 +2,12 @@
 <html>
 <head>
     <title>Prosedur Mengabsen</title>
-
-    <link rel="icon" href="{{ asset('img/logo.png') }}" >
-
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap.css')}}">
-
-	<script type="text/javascript" src="public/js/jquery.min.js"></script>
-    <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-
+</head>
+<link rel="icon" href="{{ asset('img/logo.png') }}" >
+<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <style>
         .my-custom-scrollbar {
     position: relative;
@@ -22,7 +18,6 @@
     display: block;
     }
     </style>
-</head>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.0.min.js"></script>
 <body style="background-color: #042a2b">
@@ -84,7 +79,9 @@
 
     </body>
     </html>
-    {{-- <form action="{{ url('absensi/mengabsen') }}" method="POST">
+    {{-- 
+    backup untuk tabel aka versi default paro
+    <form action="{{ url('absensi/mengabsen') }}" method="POST">
         @csrf
         <input type="text" name="tanggal" value="{{ $today->toDateString() }}"><br>
 

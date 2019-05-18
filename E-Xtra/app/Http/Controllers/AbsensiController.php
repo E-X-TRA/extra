@@ -74,14 +74,13 @@ class AbsensiController extends Controller
         $status = $absensi->delete();
 
         if ($status) {
-            return redirect('/absensi/rekapan/pertemuan')->with('success','Data Berhasil Dihapus');
+            return redirect('/absensi/rekapan')->with('success','Data Berhasil Dihapus');
         }else{
-            return redirect('/absensi/rekapan/pertemuan')->with('error','Data Gagal Dihapus');
+            return redirect('/absensi/rekapan')->with('error','Data Gagal Dihapus');
         }
     }
 
-    function liveSearch(Request $request,$id)
-    {
+    public function liveSearch(Request $request,$id){
      if($request->ajax())
      {
       $output = '';
@@ -89,10 +88,10 @@ class AbsensiController extends Controller
       if($query != '')
       {
        $data = \App\Kehadiran::join('t_anggota','t_kehadiran.id_anggota','=','t_anggota.id')
-         ->join('t_pertemuan','t_kehadiran.id_pertemuan','=','t_pertemuan.id')
-         ->where('id_pertemuan',$id)
-         ->where('nama', 'like', '%'.$query.'%')
-         ->get();
+        ->join('t_pertemuan','t_kehadiran.id_pertemuan','=','t_pertemuan.id')
+        ->where('id_pertemuan',$id)
+        ->where('nama', 'like', '%'.$query.'%')
+        ->get();
          
       }
       else
@@ -109,9 +108,9 @@ class AbsensiController extends Controller
        {
         $output .= '
         <tr>
-            <td>'.$data->nama.'</td>
-            <td>'.strtoupper($data->kehadiran).'</td>
-            <td>'.$data->tanggal.'</td>
+            <td>'.$row->nama.'</td>
+            <td>'.strtoupper($row->kehadiran).'</td>
+            <td>'.$row->tanggal.'</td>
         </tr>
         ';
        }
