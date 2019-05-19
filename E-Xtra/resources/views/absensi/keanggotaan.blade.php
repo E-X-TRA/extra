@@ -35,37 +35,17 @@
 @section('content')
 
 
-
-@if(session('success'))
-	<div class="alert alert-success">
-		{{ session('success') }}
-	</div>
-	@endif
-
-	@if(session('error'))
-	<div class="alert alert-error">
-		{{ session('error') }}
-	</div>
-	@endif
-
-	@php
-	use Carbon\Carbon;
-
-	$today = Carbon::today();
-	@endphp
-
 <h1 class="text-center" style="color: white;">DAFTAR ANGGOTA</h1>
-	 @auth {{-- kalo belom login gabakal muncul --}}
 
 	<div class="container">
 		<div class="row rounded bg-light" >
-			<div class="col">
+        
+			<div class="col d-flex justify-content-center">
 				<a href="{{ url('/anggota/tambah') }}" class="btn btn-primary mt-3">TAMBAH ANGGOTA BARU</a>
+                <a class="btn btn-secondary mt-3 ml-1" href="{{ url('/absensi') }}">MENUJU ABSENSI</a>
             </div>
-            <div class="col-6">
-                <a class="btn btn-secondary" href="{{ url('/absensi') }}">MENUJU ABSENSI</a>
-            </div>
-            <div class="col">
+            
+            <div class="col-12 d-flex justify-content-center">
                 <div class="d-inline-flex p-3">
                     <div class="btn">
                         Laki - Laki :
@@ -79,7 +59,29 @@
                         {{ $anggota->where('jenis_kelamin','P')->COUNT('jenis_kelamin') }}
                     </div>
                 </div>
+            </div>
         </div>
+        <input type="text" name="search" id="search" class="form-control mt-3" placeholder="Search Nama atau Kelas" />
+        @if(session('success'))
+	<div class="alert alert-success mt-3">
+		{{ session('success') }}
+	</div>
+	@endif
+
+	@if(session('error'))
+	<div class="alert alert-error mt-3">
+		{{ session('error') }}
+	</div>
+	@endif
+
+	@php
+	use Carbon\Carbon;
+
+	$today = Carbon::today();
+	@endphp
+
+
+	 @auth {{-- kalo belom login gabakal muncul --}}
 	</div>
 	@endauth
     
@@ -124,7 +126,7 @@
                     </table>
                 </div>
 			</div>
-            <input type="text" name="search" id="search" class="form-control" placeholder="Search Nama atau Kelas" />
+            
 			<div class="col"></div>
 		</div>
 	</div>

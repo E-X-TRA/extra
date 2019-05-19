@@ -27,23 +27,20 @@
             </div>
 
             <div class="row">
-                <div class="col"><a class="btn btn-secondary" href="{{ url('/absensi') }}">MENUJU ABSENSI</a></div>
-                
-                <div class="col">
-                    <div class="card">
-                        <img class="card-img-top">
-                        <div class="card-body">
-                            <h4 class="card-title text-center">Jumlah Pertemuan : {{ $pertemuan->COUNT('id') }}</h4>
-                        </div>
+                <div class="col"></div>
+                <div class="col rounded bg-light">
+                    <h4 class="card-title text-center mt-3">Jumlah Pertemuan : {{ $pertemuan->COUNT('id') }}</h4>
+                    <div class="col-12 d-flex justify-content-center mb-3">
+                        <a class="btn btn-secondary" href="{{ url('/absensi') }}">MENUJU ABSENSI</a>
                     </div>
                 </div>
-
                 <div class="col"></div>
             </div>
 
 
-            <input type="text" name="search" id="search" class="form-control" placeholder="Search Nama Siswa" />
+            
             <div class="container">
+            <input type="text" name="search" id="search" class="form-control mb-2 mt-2" placeholder="Search Nama Siswa" />
                 <div class="row">
                     <div class="col">
                         <div class="my-custom-scrollbar table-wrapper-scroll-y">
