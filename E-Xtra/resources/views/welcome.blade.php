@@ -71,12 +71,12 @@
                                     <a class="btn btn-lg btn-primary float-right" href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
                             @else
+                            <h6 class="text-capitalize timmana text-center" style="color: white; margin-top: 50px; font-size: 30px;" id="target"></h6>
                                     <a class=" btn btn-lg btn-primary" href="{{ route('logout') }}" style="margin-left: 250px;"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -92,7 +92,7 @@
         </div>
     </div>
      <div class="container-fluid">
-        <div class="row" style="margin-top: 120px; margin-bottom: 8em;">
+        <div class="row" style="margin-top: 120px; margin-bottom: 7em;">
             <div class="col">
             <a href="{{ url('absensi') }}" style="color: white;">
                     <div class="container-gmb hover-blur">
@@ -133,7 +133,7 @@
     </div>
     <div class="container-fluid " style="height: 22em; background-color: black ;color:white;">
         <div class="row">
-            <div class="col text-center">
+            <div class="col text-center mt-2">
                 <h4>Dibuat Oleh Siswa SMKN 4 Bandung</h4>
             </div>
         </div>
@@ -168,5 +168,19 @@
         <script src="{{ asset('/js/jquery.slim.min.js') }}"></script>
         <script src="{{ asset('/js/popper.min.js') }}"></script>
         <script src="{{ asset('/js/bootstrap.min.js')}}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script>
+            var today = new Date()
+            var curHr = today.getHours()
+            var kata
+
+            if (curHr < 12) {
+              kata= "good morning, {{ Auth::user()->name }}";
+            } else if (curHr < 18) {
+                kata= "good beb, Anda masuk sebagai {{ Auth::user()->name }} ";
+            } else {
+                kata= "selamat malam, Anda masuk sebagai {{ Auth::user()->name }}";
+            }
+            document.getElementById("target").innerHTML=kata;
+        </script>
     </body>
 </html>

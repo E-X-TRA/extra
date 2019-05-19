@@ -13,7 +13,7 @@
 <style>
     .my-custom-scrollbar {
     position: relative;
-    height: 325px;
+    height: 170px;
     overflow: auto;
     }
     .table-wrapper-scroll-y {
@@ -39,12 +39,12 @@
 
 	<div class="container">
 		<div class="row rounded bg-light" >
-        
+
 			<div class="col d-flex justify-content-center">
 				<a href="{{ url('/anggota/tambah') }}" class="btn btn-primary mt-3">TAMBAH ANGGOTA BARU</a>
                 <a class="btn btn-secondary mt-3 ml-1" href="{{ url('/absensi') }}">MENUJU ABSENSI</a>
             </div>
-            
+
             <div class="col-12 d-flex justify-content-center">
                 <div class="d-inline-flex p-3">
                     <div class="btn">
@@ -84,8 +84,8 @@
 	 @auth {{-- kalo belom login gabakal muncul --}}
 	</div>
 	@endauth
-    
-     
+
+
 	<div class="container">
 		<div class="row">
 			<div class="col"></div>
@@ -126,7 +126,7 @@
                     </table>
                 </div>
 			</div>
-            
+
 			<div class="col"></div>
 		</div>
 	</div>

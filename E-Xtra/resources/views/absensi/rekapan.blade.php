@@ -11,7 +11,7 @@
 <style>
     .my-custom-scrollbar {
     position: relative;
-    height: 425px;
+    height: 360px;
     overflow: auto;
     }
     .table-wrapper-scroll-y {
@@ -38,9 +38,9 @@
             </div>
 
 
-            
+
             <div class="container">
-            <input type="text" name="search" id="search" class="form-control mb-2 mt-2" placeholder="Search Nama Siswa" />
+            <input type="text" name="search" id="search" class="form-control mb-2 mt-2" placeholder="Search Nama Kegiatan" />
                 <div class="row">
                     <div class="col">
                         <div class="my-custom-scrollbar table-wrapper-scroll-y">
