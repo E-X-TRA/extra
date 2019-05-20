@@ -168,19 +168,21 @@
         <script src="{{ asset('/js/jquery.slim.min.js') }}"></script>
         <script src="{{ asset('/js/popper.min.js') }}"></script>
         <script src="{{ asset('/js/bootstrap.min.js')}}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+@auth
         <script>
             var today = new Date()
             var curHr = today.getHours()
             var kata
 
             if (curHr < 12) {
-              kata= "good morning, {{ Auth::user()->name }}";
+              kata= "Selamat Pagi,Anda Masuk Sebagai {{ Auth::user()->name }}";
             } else if (curHr < 18) {
-                kata= "good beb, Anda masuk sebagai {{ Auth::user()->name }} ";
+                kata= "Selamat Siang, Anda Masuk Sebagai {{ Auth::user()->name }} ";
             } else {
-                kata= "selamat malam, Anda masuk sebagai {{ Auth::user()->name }}";
+                kata= "Selamat Malam, Anda Masuk Sebagai {{ Auth::user()->name }}";
             }
             document.getElementById("target").innerHTML=kata;
+@endauth
         </script>
     </body>
 </html>
