@@ -57,7 +57,7 @@
 
                     <ul class="navbar-nav">
                             <a class="navbar-brand" href="{{ url('/') }}">
-                               <h1 style="margin-right: 85px;" > {{ config('app.name', 'E-Xtra') }} </h1>
+                               <h1 > {{ config('app.name', 'E-Xtra') }} </h1>
                             </a>
                     </ul>
 

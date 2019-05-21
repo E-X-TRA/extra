@@ -128,7 +128,7 @@
         var hasil = {{ $totalKas->SUM('jumlah_masuk') }};
         var masuk = prompt("Masukan Jumlah Target Anda");
         var kata
-        if (hasil>masuk){
+        if (hasil<masuk){
             kata = "Target Uang Kas Anda Tercapai";
         }
         else{

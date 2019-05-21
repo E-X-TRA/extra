@@ -33,18 +33,18 @@
 		<div class="col-10">
 			<div class="col stuff rounded">
                 <div class="col">
-                <h3 class="py-2" style="font-family: Lato;">REKAPAN PERTEMUAN</h3> 
+                <h1 class="py-2 text-center" style="font-family: monospace;">REKAPAN PERTEMUAN</h1> 
                 <div class="row">
-                    <h6>Kegiatan : {{ $namaKegiatan }}</h6>
+                    <h6 class="mt-1">Kegiatan : {{ $namaKegiatan }}</h6>
                    <form action="{{ url('/absensi/rekapan/pertemuan/' . $idPertemuan) }}" method="POST">
                                     @method('DELETE')
                                     @csrf
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger mb-4" style="margin-left:700px;">Delete</button>
                     </form> 
                 </div>
                 </div>
             </div>
-            <input type="text" name="search" id="search" class="form-control" placeholder="Search Nama Siswa" />
+            <input type="text" name="search" id="search" class="form-control mt-1 mb-1" placeholder="Search Nama Siswa" />
             <div class="my-custom-scrollbar table-wrapper-scroll-y">
                 <table id="tabelKehadiran" class="table table-dark table-striped rounded">
                     <thead>
