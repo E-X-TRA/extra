@@ -63,7 +63,7 @@ php artisan serve
 php artisan migrate
 ```
 
-Untuk Tutorial Lengkapnya silahkan cek [link](www.google.com)
+Untuk Tutorial Lengkapnya silahkan cek [link](https://youtu.be/YTE2qSZJh30 )
 
 ## Usage
 
